@@ -2,6 +2,17 @@
 
 <!-- impeccable:product-schema 1 -->
 
+## Rebrand in progress (2026-10-14): Lava Pit ($LAVA)
+
+The public site was redrawn as **Lava Pit ($LAVA)**, a 2D pixel mine cut open from the side (block-game feel, but no Minecraft names, characters, logos or textures). Engine, API, tokenomics and `/memex` are unchanged.
+
+- Mascot: **Brr**, a penguin miner (yellow hard hat, head lamp, always sweating) who slid off his iceberg into the lava mine; he is the bot. (Replaced Cobble the cobblestone on 2026-10-14 at the user's request.)
+- The lava pit (real pixel fire) is 0x…dEaD. Odd runs (0.01 ETH): buy $LAVA, drop it in the lava. Even runs (0.02 ETH): fees go in **the chest** (project wallet).
+- Fee escrow = the segmented bar ("ETH ore"). Burn log = "the lava log".
+- Fonts: Pixelify Sans (display), Silkscreen (labels, caps only: never use it for addresses), Space Grotesk (body), JetBrains Mono (addresses, numbers).
+- Not live yet: no domain, no X, no CA. $LAVA needs a new Pons launch; the on-chain name/ticker of the current token cannot change.
+- The Black Void sections below are the previous brand.
+
 ## Platform
 
 web

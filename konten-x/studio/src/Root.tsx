@@ -47,6 +47,21 @@ import { PyreLoop, PyreTeaser } from "./pyre/Motion";
 import { CircleLogo, CircleBanner, CircleLoop, CircleDemo, CircleStatus, CircleUpdate } from "./pyre/CircleComps";
 import { PyreReceipt, HookPOV, PyreTodo, ScoopDip, PaperHands, PyreFees } from "./pyre/HookComps";
 import { BrewLogo, BrewBanner, BrewLoop, BrewDemo } from "./brew/Comps";
+import { CapsuLogo, CapsuBanner, CapsuLoop, CapsuDemo } from "./capsu/Comps";
+import { UrnLogo, UrnBanner, UrnLoop, UrnDemo } from "./urn/Comps";
+import { HangLogo, HangBanner, HangLoop, HangDemo } from "./hang/Comps";
+import { TombLogo, TombBanner, TombLoop, TombDemo } from "./tomb/Comps";
+import { LavaLogo, LavaBanner, LavaLoop, LavaDemo } from "./lava/Comps";
+import { FIRST_BURN as TOMB_FIRST_BURN, TombBurnClip, TombBurnPost } from "./tomb/Live";
+import { CYCLE_NOW, FIRST_BURN, HangBurnClip, HangBurnPost, HangCyclePost, HangStatusPost, STATUS_NOW } from "./hang/Live";
+import { BRIEFING_R7, HangFedBurn, HangFedClip } from "./hang/Fed";
+import { HangDipClip } from "./hang/Dip";
+import { HangSlowSell, SLOW_SELL } from "./hang/SlowSell";
+import { HangNoon } from "./hang/Noon";
+import { HangTreasury, TREASURY_R8 } from "./hang/Treasury";
+import { NowHiring, ScoopAisle, ScoopCone, ScoopQuiet, ScoopRain, ScoopSchedule } from "./hang/Scoop";
+import { NOW, UpdFireLog, UpdHolders, UpdLighter, UpdLoading, UpdReceipt } from "./hang/Update";
+import { PostFireNoChart, PostReadRed, PostSlothDiet, PostSlothHands } from "./hang/Posts";
 import { Banner, Logo, OgImage, PostAdmitOne, PostHowItWorks, PostMeetMort, PostObituary, PostRingTheBell, PostTrending, PostTwoShifts } from "./Stills";
 
 export const RemotionRoot: React.FC = () => {
@@ -260,6 +275,63 @@ export const RemotionRoot: React.FC = () => {
         <Composition id="HookPOV" component={HookPOV} width={1080} height={1350} fps={30} durationInFrames={390} defaultProps={{ asOf: "Oct 11, 14:03 UTC", burns: [{ amount: 20607394.87, tx: "0x29a9c92a86b036433dd4e657fe50dd47762c5e60595348a11d4a713bba501ebc" }, { amount: 3547255.6, tx: "0x412f1e0a9dfebb73a9b483096f96294b8b5c527fb467feb0bff197ba5074541c" }], ca: "0xc038e7b0e97fb9ecf3feb224f811e8e001304c0c" }} />
         <Composition id="CircleUpdate" component={CircleUpdate} width={1080} height={1350} fps={30} durationInFrames={630} defaultProps={{ asOf: "Oct 11, 13:58 UTC", minutesIn: 14, burns: [{ amount: 20607394.87, tx: "0x29a9c92a86b036433dd4e657fe50dd47762c5e60595348a11d4a713bba501ebc" }, { amount: 3547255.6, tx: "0x412f1e0a9dfebb73a9b483096f96294b8b5c527fb467feb0bff197ba5074541c" }], cycles: ["burn", "keep", "burn"], next: "keep", nextAt: 0.02, escrow: 0.01312, holders: 36, buys: 85, sells: 46, ca: "0xc038e7b0e97fb9ecf3feb224f811e8e001304c0c" }} />
         <Composition id="CircleStatus" component={CircleStatus} width={1080} height={1350} fps={30} durationInFrames={690} defaultProps={{ asOf: "Oct 11, 13:48 UTC", burned: 20607394.87, burnedPct: 2.0607, burnTx: "0x29a9c92a86b036433dd4e657fe50dd47762c5e60595348a11d4a713bba501ebc", burnSpentEth: 0.024856, keepEth: 0.020791, buys: 53, sells: 22, holders: 32, nextAt: 0.01, ca: "0xc038e7b0e97fb9ecf3feb224f811e8e001304c0c" }} />
+      </Folder>
+      <Folder name="Capsu">
+        <Still id="CapsuLogo" component={CapsuLogo} width={1000} height={1000} />
+        <Still id="CapsuBanner" component={CapsuBanner} width={1500} height={500} />
+        <Composition id="CapsuLoop" component={CapsuLoop} width={600} height={600} fps={20} durationInFrames={80} />
+        <Composition id="CapsuDemo" component={CapsuDemo} width={1920} height={1080} fps={30} durationInFrames={900} />
+      </Folder>
+      <Folder name="Urn">
+        <Still id="UrnLogo" component={UrnLogo} width={1000} height={1000} />
+        <Still id="UrnBanner" component={UrnBanner} width={1500} height={500} />
+        <Composition id="UrnLoop" component={UrnLoop} width={600} height={600} fps={20} durationInFrames={80} />
+        <Composition id="UrnDemo" component={UrnDemo} width={1920} height={1080} fps={30} durationInFrames={900} />
+      </Folder>
+      <Folder name="Lava">
+        <Still id="LavaLogo" component={LavaLogo} width={1000} height={1000} />
+        <Still id="LavaBanner" component={LavaBanner} width={1500} height={500} />
+        <Composition id="LavaLoop" component={LavaLoop} width={600} height={600} fps={20} durationInFrames={80} />
+        <Composition id="LavaDemo" component={LavaDemo} width={1920} height={1080} fps={30} durationInFrames={900} />
+      </Folder>
+      <Folder name="Tomb">
+        <Still id="TombLogo" component={TombLogo} width={1000} height={1000} />
+        <Still id="TombBanner" component={TombBanner} width={1500} height={500} />
+        <Composition id="TombLoop" component={TombLoop} width={600} height={600} fps={20} durationInFrames={80} />
+        <Composition id="TombDemo" component={TombDemo} width={1920} height={1080} fps={30} durationInFrames={900} />
+        <Still id="TombBurnPost" component={TombBurnPost} width={1080} height={1350} defaultProps={TOMB_FIRST_BURN} />
+        <Composition id="TombBurnClip" component={TombBurnClip} width={1080} height={1350} fps={30} durationInFrames={360} defaultProps={TOMB_FIRST_BURN} />
+      </Folder>
+      <Folder name="Hang">
+        <Still id="HangLogo" component={HangLogo} width={1000} height={1000} />
+        <Still id="HangBanner" component={HangBanner} width={1500} height={500} />
+        <Composition id="HangLoop" component={HangLoop} width={600} height={600} fps={20} durationInFrames={80} />
+        <Composition id="HangDemo" component={HangDemo} width={1920} height={1080} fps={30} durationInFrames={900} />
+        <Still id="HangCyclePost" component={HangCyclePost} width={1080} height={1350} defaultProps={CYCLE_NOW} />
+        <Still id="HangStatusPost" component={HangStatusPost} width={1080} height={1350} defaultProps={STATUS_NOW} />
+        <Still id="HangBurnPost" component={HangBurnPost} width={1080} height={1350} defaultProps={FIRST_BURN} />
+        <Still id="HangPostSlothDiet" component={PostSlothDiet} width={1080} height={1350} />
+        <Still id="HangPostSlothHands" component={PostSlothHands} width={1080} height={1350} />
+        <Still id="HangPostReadRed" component={PostReadRed} width={1080} height={1350} />
+        <Still id="HangPostFireNoChart" component={PostFireNoChart} width={1080} height={1350} />
+        <Still id="HangUpdReceipt" component={UpdReceipt} width={1080} height={1350} defaultProps={NOW} />
+        <Still id="HangUpdFireLog" component={UpdFireLog} width={1080} height={1350} defaultProps={NOW} />
+        <Still id="HangUpdLighter" component={UpdLighter} width={1080} height={1350} defaultProps={NOW} />
+        <Still id="HangUpdHolders" component={UpdHolders} width={1080} height={1350} defaultProps={NOW} />
+        <Still id="HangUpdLoading" component={UpdLoading} width={1080} height={1350} defaultProps={NOW} />
+        <Still id="HangScoopAisle" component={ScoopAisle} width={1080} height={1350} />
+        <Still id="HangScoopCone" component={ScoopCone} width={1080} height={1350} />
+        <Still id="HangScoopRain" component={ScoopRain} width={1080} height={1350} />
+        <Still id="HangScoopSchedule" component={ScoopSchedule} width={1080} height={1350} />
+        <Still id="HangNowHiring" component={NowHiring} width={1080} height={1350} />
+        <Still id="HangScoopQuiet" component={ScoopQuiet} width={1080} height={1350} />
+        <Composition id="HangTreasury" component={HangTreasury} width={1080} height={1350} fps={30} durationInFrames={420} defaultProps={TREASURY_R8} />
+        <Composition id="HangNoon" component={HangNoon} width={1080} height={1350} fps={30} durationInFrames={450} />
+        <Composition id="HangSlowSell" component={HangSlowSell} width={1080} height={1350} fps={30} durationInFrames={390} defaultProps={SLOW_SELL} />
+        <Composition id="HangDipClip" component={HangDipClip} width={1080} height={1350} fps={30} durationInFrames={360} />
+        <Composition id="HangFedBurn" component={HangFedBurn} width={1080} height={1350} fps={30} durationInFrames={360} defaultProps={BRIEFING_R7} />
+        <Composition id="HangFedClip" component={HangFedClip} width={1080} height={1350} fps={30} durationInFrames={300} />
+        <Composition id="HangBurnClip" component={HangBurnClip} width={1080} height={1350} fps={30} durationInFrames={240} defaultProps={FIRST_BURN} />
       </Folder>
       <Folder name="Brew">
         <Still id="BrewLogo" component={BrewLogo} width={1000} height={1000} />

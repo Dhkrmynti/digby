@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "bot": "npx tsx bot/pons-burn-bot.ts"
+    "bot": "npx tsx bot/pons-burn-bot.ts",
+    "test:e2e": "tsx test/e2e.ts"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -20,6 +21,9 @@
     "vite": "^8.3.0"
   },
   "dependencies": {
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@fontsource/pixelify-sans": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
     "@gsap/react": "^2.1.2",
     "@paper-design/shaders": "^0.0.81",
     "@splinetool/react-spline": "^4.1.0",

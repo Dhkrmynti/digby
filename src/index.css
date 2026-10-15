@@ -2,58 +2,61 @@
 @import "./fonts.css";
 
 /*
-  VOID: Deadsky Observatory, night shift on dEaD-1.
-  Control-room night, strip-chart paper, a pen trace, a red marker, and the ring.
+  LAVA PIT: the bottom of a pixel mine. Cave stone, a grass line far above, a lava pit
+  that really burns, and Brr, a penguin miner, working the ledge. Square corners, stepped motion.
 */
 @theme {
-  /* the control room at night */
-  --color-night: #06080f;
-  --color-night-2: #0b1020;
-  --color-panel: #10172a;
-  --color-panel-line: #26324d;
-  --color-star: #d3dbec;
-  --color-star-dim: #919db8;
-  /* chart paper */
-  --color-paper: #f1ede1;
-  --color-paper-shade: #e2dbc8;
-  --color-grid: #e0703f;
-  --color-pen: #1c2a6b;
-  --color-pen-soft: #4a5577;
-  /* the observer's marker */
-  --color-marker: #cf3228;
-  --color-marker-deep: #9c1f17;
-  /* the photon ring: live and actionable only */
-  --color-ring: #ffad42;
-  --color-ring-hot: #ffe2a6;
-  /* observatory fuel: the keep orbit */
-  --color-fuel: #5cc2ab;
-  --color-fuel-ink: #1d7262;
+  /* the cave */
+  --color-night: #15110e;
+  --color-night-2: #1d1714;
+  --color-panel: #2a221d;
+  --color-panel-line: #3e332b;
+  --color-star: #f4ecdc;
+  --color-star-dim: #b5a896;
+  /* signs and paper (full log drawer) */
+  --color-paper: #efe6d4;
+  --color-paper-shade: #ddd1ba;
+  --color-grid: #c47f1c;
+  --color-pen: #2a1d14;
+  --color-pen-soft: #6b5a48;
+  --color-marker: #d9420f;
+  --color-marker-deep: #8f2108;
+  /* lava: live and actionable only */
+  --color-ring: #ff8a1f;
+  --color-ring-hot: #ffe066;
+  /* the chest: the keep runs, ETH ore blue */
+  --color-fuel: #7fdcf0;
+  --color-fuel-ink: #1f6f86;
+  /* the surface */
+  --color-grass: #5fa83b;
+  --color-dirt: #6b4a2f;
 
   /* legacy names used by the operator panel, remapped into this world */
-  --color-soot: #06080f;
-  --color-char: #0b1020;
-  --color-wood: #10172a;
-  --color-bark: #26324d;
-  --color-ember: #ffad42;
-  --color-flame: #ffad42;
-  --color-hot: #f1ede1;
-  --color-ash: #919db8;
-  --color-ash-light: #d3dbec;
-  --color-plaque: #f1ede1;
-  --color-plaque-ink: #1c2a6b;
-  --color-cold: #5cc2ab;
+  --color-soot: #15110e;
+  --color-char: #1d1714;
+  --color-wood: #2a221d;
+  --color-bark: #3e332b;
+  --color-ember: #ff8a1f;
+  --color-flame: #ff8a1f;
+  --color-hot: #efe6d4;
+  --color-ash: #b5a896;
+  --color-ash-light: #f4ecdc;
+  --color-plaque: #efe6d4;
+  --color-plaque-ink: #2a1d14;
+  --color-cold: #7fdcf0;
 
-  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
-  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Pixelify Sans", "Courier New", monospace;
+  --font-body: "Space Grotesk Variable", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-hand: "Reenie Beanie", "Bradley Hand", cursive;
-  --font-sign: "Big Shoulders Display", sans-serif;
+  --font-pixel: "Silkscreen", "Courier New", monospace;
+  --font-hand: "Silkscreen", monospace;
+  --font-sign: "Pixelify Sans", monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  /* Accretion disk fill 0..1, written by the page; brightens the ring */
+  /* escrow fill 0..1, written by the page; warms the lava glow */
   --hearth: 0;
   color-scheme: dark;
 }
@@ -82,7 +85,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ring);
+    outline: 3px solid var(--color-ring-hot);
     outline-offset: 3px;
   }
 
@@ -100,7 +103,6 @@
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-panel-line);
-  border-radius: 12px;
   border: 3px solid var(--color-night);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -111,132 +113,194 @@
   font-variant-numeric: tabular-nums lining-nums;
 }
 
+/* Everything below is a component layer, so Tailwind utilities on an element still win. */
+@layer components {
 /* ───────── Voices ───────── */
 .display {
   font-family: var(--font-display);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.86;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0;
 }
+.pxl,
 .label {
-  font-family: var(--font-body);
-  font-weight: 600;
+  font-family: var(--font-pixel);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.04em;
 }
 .hand {
-  font-family: var(--font-hand);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.01em;
+  font-family: var(--font-pixel);
+  line-height: 1.1;
+}
+/* pixel letters cast a hard one-step shadow, like a game title */
+.px-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.9;
+  text-shadow: 0.06em 0.06em 0 #0b0806;
 }
 
-/* ───────── Night sky over the observatory ───────── */
+/* ───────── The world ───────── */
 .sky {
   background:
-    radial-gradient(70% 55% at 50% 36%, color-mix(in oklab, var(--color-ring) calc(3% + var(--hearth) * 7%), transparent) 0%, transparent 65%),
-    radial-gradient(120% 80% at 50% 120%, #0d1530 0%, transparent 60%),
+    radial-gradient(70% 40% at 50% 100%, color-mix(in oklab, var(--color-ring) calc(6% + var(--hearth) * 10%), transparent) 0%, transparent 70%),
     var(--color-night);
 }
+/* cave stone, one 32px tile of blocks */
+.px-stone {
+  background-color: #1d1714;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'%3E%3Crect width='32' height='32' fill='%231d1714'/%3E%3Crect x='0' y='0' width='15' height='15' fill='%23211a16'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%23211a16'/%3E%3Crect x='4' y='4' width='4' height='2' fill='%23282019'/%3E%3Crect x='22' y='6' width='6' height='2' fill='%23181310'/%3E%3Crect x='8' y='22' width='6' height='2' fill='%23181310'/%3E%3Crect x='24' y='24' width='4' height='2' fill='%23282019'/%3E%3Crect x='0' y='15' width='32' height='1' fill='%23120e0c'/%3E%3Crect x='15' y='0' width='1' height='15' fill='%23120e0c'/%3E%3Crect x='0' y='31' width='32' height='1' fill='%23120e0c'/%3E%3Crect x='7' y='16' width='1' height='15' fill='%23120e0c'/%3E%3C/svg%3E");
+  background-size: 64px 64px;
+  image-rendering: pixelated;
+}
+.px-dirt {
+  background-color: var(--color-dirt);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%236b4a2f'/%3E%3Crect x='2' y='3' width='2' height='2' fill='%23573a23'/%3E%3Crect x='10' y='1' width='2' height='2' fill='%237d5838'/%3E%3Crect x='6' y='9' width='2' height='2' fill='%23573a23'/%3E%3Crect x='12' y='11' width='2' height='2' fill='%237d5838'/%3E%3Crect x='1' y='13' width='2' height='2' fill='%237d5838'/%3E%3C/svg%3E");
+  background-size: 48px 48px;
+  image-rendering: pixelated;
+}
+.px-grass {
+  background:
+    linear-gradient(#78c24a 0 4px, var(--color-grass) 4px 12px, transparent 12px),
+    repeating-linear-gradient(90deg, var(--color-grass) 0 12px, transparent 12px 18px, var(--color-grass) 18px 24px, transparent 24px 36px) 0 12px / 100% 6px no-repeat;
+}
 
-/* ───────── Strip-chart paper: the recorder's own ruling ───────── */
+/* ───────── Panels: square, bevelled, with a hard outline ───────── */
+.px-panel {
+  position: relative;
+  background: var(--color-panel);
+  color: var(--color-star);
+  box-shadow:
+    0 0 0 4px #0b0806,
+    inset 4px 4px 0 rgba(255, 255, 255, 0.07),
+    inset -4px -4px 0 rgba(0, 0, 0, 0.32),
+    8px 8px 0 4px rgba(0, 0, 0, 0.45);
+}
+.px-frame {
+  position: relative;
+  background: #0b0806;
+  padding: 6px;
+  box-shadow: 0 0 0 4px #3e332b, 10px 10px 0 4px rgba(0, 0, 0, 0.45);
+  image-rendering: pixelated;
+}
+
+/* paper: the full-log drawer and lore signs */
 .paper {
   position: relative;
   background-color: var(--color-paper);
   color: var(--color-pen);
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--color-grid) 42%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--color-grid) 42%, transparent) 1px, transparent 1px),
-    linear-gradient(to right, color-mix(in oklab, var(--color-grid) 16%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--color-grid) 16%, transparent) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
-  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 0 4px #0b0806, inset -4px -4px 0 rgba(0, 0, 0, 0.12), 8px 8px 0 4px rgba(0, 0, 0, 0.45);
 }
-/* the sprocket holes the recorder drives the paper by */
 .sprockets {
-  -webkit-mask:
-    radial-gradient(circle at 10px 50%, transparent 4px, #000 4.5px) left / 20px 24px repeat-y,
-    radial-gradient(circle at 10px 50%, transparent 4px, #000 4.5px) right / 20px 24px repeat-y,
-    linear-gradient(#000, #000) center / calc(100% - 40px) 100% no-repeat;
-  mask:
-    radial-gradient(circle at 10px 50%, transparent 4px, #000 4.5px) left / 20px 24px repeat-y,
-    radial-gradient(circle at 10px 50%, transparent 4px, #000 4.5px) right / 20px 24px repeat-y,
-    linear-gradient(#000, #000) center / calc(100% - 40px) 100% no-repeat;
 }
 
-/* ───────── Buttons ───────── */
-.btn-ring {
+/* ───────── Buttons: pixel keys that press down ───────── */
+.btn-ring,
+.btn-ghost,
+.btn-pen,
+.btn-coal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  font-family: var(--font-display);
-  font-weight: 800;
+  font-family: var(--font-pixel);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
+  border-radius: 0;
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), background-color 0.12s steps(2), color 0.12s steps(2);
+}
+.btn-ring,
+.btn-coal {
   background: var(--color-ring);
-  color: var(--color-night);
-  border-radius: 999px;
-  box-shadow: 0 12px 30px -10px rgba(255, 173, 66, 0.75);
-  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), background-color 0.2s;
+  color: #1a1412;
+  box-shadow: 0 0 0 3px #0b0806, inset 0 -5px 0 #c2370f, inset 0 3px 0 rgba(255, 255, 255, 0.45), 0 6px 0 3px #0b0806;
 }
-.btn-ring:hover {
+.btn-ring:hover,
+.btn-coal:hover {
   background: var(--color-ring-hot);
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px -12px rgba(255, 173, 66, 0.9);
 }
-.btn-ring:active {
-  transform: translateY(1px);
+.btn-ring:active,
+.btn-coal:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 3px #0b0806, inset 0 -2px 0 #c2370f, inset 0 3px 0 rgba(255, 255, 255, 0.45), 0 1px 0 3px #0b0806;
 }
-
 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  background: #3a302a;
   color: var(--color-star);
-  border: 1.5px solid var(--color-panel-line);
-  border-radius: 999px;
-  transition: border-color 0.2s, color 0.2s;
+  box-shadow: 0 0 0 3px #0b0806, inset 0 -4px 0 #231c17, inset 0 3px 0 rgba(255, 255, 255, 0.12), 0 5px 0 3px #0b0806;
 }
 .btn-ghost:hover {
-  border-color: var(--color-ring);
+  background: #4b3f37;
   color: var(--color-ring-hot);
 }
-
+.btn-ghost:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 3px #0b0806, inset 0 -2px 0 #231c17, 0 1px 0 3px #0b0806;
+}
 .btn-pen {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--color-pen);
-  border: 1.5px solid color-mix(in oklab, var(--color-pen) 60%, transparent);
-  border-radius: 999px;
-  transition: background-color 0.2s, color 0.2s;
+  background: var(--color-paper);
+  box-shadow: 0 0 0 3px var(--color-pen);
 }
 .btn-pen:hover {
   background: var(--color-pen);
   color: var(--color-paper);
 }
 
-/* ───────── Reveals ───────── */
+/* ───────── Pixel motion (all of it stepped) ───────── */
 @media (prefers-reduced-motion: no-preference) {
+  .px-flame {
+    transform-box: view-box;
+    animation: px-flick 0.6s steps(3) infinite alternate;
+  }
+  .px-bubble {
+    animation: px-bubble 2.4s steps(8) infinite;
+  }
+  .px-lava-crust {
+    animation: px-crust 3.2s steps(8) infinite;
+  }
+  .px-hop {
+    animation: px-hop 0.5s steps(2) infinite alternate;
+  }
+  .px-bob {
+    animation: px-hop 1.4s steps(2) infinite alternate;
+  }
+  .px-sweat {
+    animation: px-sweat 1.6s steps(6) infinite;
+  }
   .reink {
-    animation: reink 0.7s var(--ease-out-expo) both;
+    animation: reink 0.35s steps(4) both;
   }
 }
+@keyframes px-flick {
+  0% { transform: scaleY(0.75); }
+  50% { transform: scaleY(1.1); }
+  100% { transform: scaleY(0.9); }
+}
+@keyframes px-bubble {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { transform: translateY(-6px); opacity: 1; }
+  100% { transform: translateY(-8px); opacity: 0; }
+}
+@keyframes px-crust {
+  from { transform: translateX(0); }
+  to { transform: translateX(8px); }
+}
+@keyframes px-hop {
+  from { transform: translateY(0); }
+  to { transform: translateY(-4px); }
+}
+@keyframes px-sweat {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}
 @keyframes reink {
-  0% { opacity: 0; filter: blur(6px); transform: translateY(0.2em); }
-  100% { opacity: 1; filter: blur(0); transform: none; }
+  0% { opacity: 0; transform: translateY(0.2em); }
+  100% { opacity: 1; transform: none; }
 }
 
 /* ───────── Legacy operator-panel helpers (/memex) ───────── */
@@ -244,18 +308,8 @@
   background: var(--color-paper);
   color: var(--color-pen);
 }
-.btn-coal {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: var(--color-ring);
-  color: var(--color-night);
-  font-family: var(--font-display);
-  font-weight: 800;
-  border-radius: 999px;
-}
 .sign-lettering {
   font-family: var(--font-display);
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 700;
+}
 }
