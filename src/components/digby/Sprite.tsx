@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { CARD_H, CARD_W, drawCard, headSprite, type CardArt } from './canvas';
+import { CARD_H, CARD_W, drawCard, headSprite, type CardArt, type CardOptions } from './canvas';
 import { FPS } from './pixels';
 
 /* One shared clock for every animated sprite on the page, so they all step together at 8 fps. */
@@ -64,14 +64,16 @@ interface SpriteCardProps {
   level?: number;
   className?: string;
   label: string;
+  bare?: CardOptions['bare'];
+  locked?: CardOptions['locked'];
 }
 
 /** A small framed pixel scene (48×44 art pixels), animated on the shared clock. */
-export function SpriteCard({ art, stage = 2, level, className = '', label }: SpriteCardProps) {
+export function SpriteCard({ art, stage = 2, level, className = '', label, bare, locked }: SpriteCardProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   useSpriteClock(ref, (t) => {
     const ctx = ref.current?.getContext('2d');
-    if (ctx) drawCard(ctx, art, stage, t, level);
+    if (ctx) drawCard(ctx, art, stage, t, level, { bare, locked });
   });
   return <canvas ref={ref} width={CARD_W} height={CARD_H} role="img" aria-label={label} className={`pixelated block aspect-[48/44] max-w-full ${className}`} />;
 }

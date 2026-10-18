@@ -104,12 +104,46 @@ export function cardBackdrop(ctx: CanvasRenderingContext2D) {
 export type CardArt = 'idle' | 'dig' | 'yawn' | 'rip' | 'ghost' | 'tomb' | 'lantern' | 'coin' | 'sack';
 
 /** One tick of a small sprite card. `level` drives the lantern when it is a live reading. */
-export function drawCard(ctx: CanvasRenderingContext2D, art: CardArt, stage: number, t: number, level?: number) {
-  cardBackdrop(ctx);
+/** Digby's outline filled with one flat colour: a stage the yard has not reached yet. */
+const shadows = new Map<string, HTMLCanvasElement>();
+function silhouette(stage: number, f: Frame) {
+  const key = `${stage}${f.p}${f.bob ? 1 : 0}`;
+  let c = shadows.get(key);
+  if (!c) {
+    const src = digbySprite(stage, { p: f.p, bob: f.bob });
+    c = document.createElement('canvas');
+    c.width = src.width;
+    c.height = src.height;
+    const x = c.getContext('2d')!;
+    x.drawImage(src, 0, 0);
+    x.globalCompositeOperation = 'source-in';
+    x.fillStyle = PAL.hill1;
+    x.fillRect(0, 0, c.width, c.height);
+    shadows.set(key, c);
+  }
+  return c;
+}
+
+export interface CardOptions {
+  /** no night backdrop: the sprite stands straight on whatever the page is */
+  bare?: boolean;
+  /** a locked stage: Digby as a flat silhouette */
+  locked?: boolean;
+}
+
+export function drawCard(ctx: CanvasRenderingContext2D, art: CardArt, stage: number, t: number, level?: number, opts: CardOptions = {}) {
+  if (opts.bare) {
+    ctx.clearRect(0, 0, CARD_W, CARD_H);
+    if (art !== 'coin' && art !== 'lantern') {
+      ctx.fillStyle = 'rgba(16,12,27,0.35)';
+      ctx.fillRect(12, 38, 24, 2);
+    }
+  } else cardBackdrop(ctx);
   if (art === 'idle' || art === 'dig' || art === 'yawn' || art === 'rip') {
     const track = art === 'dig' ? DIG : art === 'yawn' ? YAWN : IDLE;
-    ctx.drawImage(digbySprite(stage, track[t % 8]), 7, 8);
-    if (stage >= 3) halo(ctx, 7 + LANTERN_AT.x, 8 + LANTERN_AT.y, 9, 0.28 + 0.06 * ((t >> 1) % 2));
+    const f = track[t % 8];
+    ctx.drawImage(opts.locked ? silhouette(stage, f) : digbySprite(stage, f), 7, 8);
+    if (stage >= 3 && !opts.locked) halo(ctx, 7 + LANTERN_AT.x, 8 + LANTERN_AT.y, 9, 0.28 + 0.06 * ((t >> 1) % 2));
     if (art === 'rip' && t % 8 < 6) ripBubble(ctx, 27, 1);
   } else if (art === 'ghost') {
     ctx.drawImage(ghostSprite((t >> 1) % 2), 8, 12 + Math.round(Math.sin(t / 3) * 2));

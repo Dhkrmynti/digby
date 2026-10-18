@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ArrowUpRight, Check, Copy } from 'lucide-react';
+import { ArrowUpRight, Check, Copy, LineChart, Send } from 'lucide-react';
 import { SpriteCard } from './Sprite';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -14,12 +14,14 @@ interface StoryProps {
   tokenAddress: string;
   copiedCA: boolean;
   onCopyCA: () => void;
+  /** where to follow and check: each one shows only once it exists */
+  links: { x: string; telegram: string; chart: string; yard: string };
 }
 
 /**
  * Digby's story, set as an obituary page on parchment, then the last word under the moon.
  */
-export function Story({ tokenSymbol, deadAddress, buyHref, tokenAddress, copiedCA, onCopyCA }: StoryProps) {
+export function Story({ tokenSymbol, deadAddress, buyHref, tokenAddress, copiedCA, onCopyCA, links }: StoryProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -78,8 +80,8 @@ export function Story({ tokenSymbol, deadAddress, buyHref, tokenAddress, copiedC
           </div>
 
           <aside className="min-w-0 self-start bg-paper-shade p-6 shadow-[0_0_0_3px_var(--color-pen)] sm:p-8" aria-label="Digby's profile">
-            <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-5">
-              <SpriteCard art="rip" stage={3} label="Digby with a RIP speech bubble" className="w-full shadow-[0_0_0_3px_var(--color-pen)]" />
+            <div className="grid grid-cols-[8.5rem_minmax(0,1fr)] items-end gap-4 sm:grid-cols-[10rem_minmax(0,1fr)]">
+              <SpriteCard bare art="rip" stage={3} label="Digby with a RIP speech bubble" className="-mb-2 -ml-3 w-full" />
               <div>
                 <div className="label text-[0.7rem] text-hood">keeper of 0x…dEaD</div>
                 <div className="mt-1 font-logo text-[2.2rem] font-bold leading-none text-pen">Digby</div>
@@ -127,6 +129,40 @@ export function Story({ tokenSymbol, deadAddress, buyHref, tokenAddress, copiedC
                 </span>
               </button>
             ) : null}
+            <ul className="m-0 flex list-none flex-wrap gap-3 p-0" aria-label="Follow and check">
+              {links.x ? (
+                <li>
+                  <a href={links.x} target="_blank" rel="noreferrer" className="btn-chip no-underline">
+                    <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-6.4L6.5 22H3.4l7.2-8.2L2.9 2h6.4l4.4 5.8L18.9 2Zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7Z" />
+                    </svg>
+                    Follow on X
+                  </a>
+                </li>
+              ) : null}
+              {links.telegram ? (
+                <li>
+                  <a href={links.telegram} target="_blank" rel="noreferrer" className="btn-chip no-underline">
+                    <Send className="h-4 w-4" />
+                    Telegram
+                  </a>
+                </li>
+              ) : null}
+              {links.chart ? (
+                <li>
+                  <a href={links.chart} target="_blank" rel="noreferrer" className="btn-chip no-underline">
+                    <LineChart className="h-4 w-4" />
+                    Dexscreener
+                  </a>
+                </li>
+              ) : null}
+              <li>
+                <a href={links.yard} target="_blank" rel="noreferrer" className="btn-chip no-underline">
+                  <ArrowUpRight className="h-4 w-4" />
+                  Check 0x…dEaD
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

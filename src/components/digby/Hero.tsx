@@ -146,10 +146,12 @@ export function Hero(props: HeroProps) {
                 Buy {tokenSymbol}
                 <ArrowUpRight className="h-5 w-5" />
               </a>
-              <a href={chartHref} target="_blank" rel="noreferrer" className="btn-chip no-underline">
-                Chart
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
+              {tokenAddress ? (
+                <a href={chartHref} target="_blank" rel="noreferrer" className="btn-chip no-underline">
+                  Chart
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              ) : null}
             </div>
             {tokenAddress ? (
               <button type="button" onClick={onCopyCA} className="ca-field w-full max-w-[34rem] cursor-pointer text-left" title="Copy contract address">

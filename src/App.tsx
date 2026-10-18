@@ -24,6 +24,8 @@ const MemexAdmin = lazy(() => import('./components/MemexAdmin'));
 
 /** X account for the project: empty until there is one. */
 const X_URL = '';
+/** Telegram group for the project: empty until there is one. */
+const TG_URL = '';
 const EXPLORER_URL = 'https://explorer.mainnet.chain.robinhood.com';
 /** Where to trade and where to watch, once the CA is known. */
 const buyUrl = (ca: string) => (ca ? `https://ponsfamily.com/launchpad/${ca}` : EXPLORER_URL);
@@ -273,9 +275,17 @@ export function App() {
           onOpenLog={() => setIsLogOpen(true)}
         />
 
-        <Watch state={state} config={config} live={isConfigured} fill={lanternFill} burnedPercent={burnedPercent} totalBurned={totalTokensBurned} graves={graves} onOpenLog={() => setIsLogOpen(true)} />
+        <Watch state={state} config={config} logs={logs} live={isConfigured} fill={lanternFill} burnedPercent={burnedPercent} explorerUrl={EXPLORER_URL} onOpenLog={() => setIsLogOpen(true)} />
 
-        <Story tokenSymbol={tokenSymbol} deadAddress={deadAddress} buyHref={buyUrl(config.tokenAddress)} tokenAddress={config.tokenAddress} copiedCA={copiedCA} onCopyCA={copyCA} />
+        <Story
+          tokenSymbol={tokenSymbol}
+          deadAddress={deadAddress}
+          buyHref={buyUrl(config.tokenAddress)}
+          tokenAddress={config.tokenAddress}
+          copiedCA={copiedCA}
+          onCopyCA={copyCA}
+          links={{ x: X_URL, telegram: TG_URL, chart: config.tokenAddress ? chartUrl(config.tokenAddress) : '', yard: `${EXPLORER_URL}/address/${deadAddress}` }}
+        />
 
         <footer className="relative border-t-[3px] border-ink-soft bg-ink">
           <div className="mx-auto flex max-w-[84rem] flex-col gap-4 px-4 pb-12 pt-8 text-[0.95rem] text-mist sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16">

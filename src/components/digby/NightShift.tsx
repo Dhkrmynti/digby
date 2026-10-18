@@ -144,7 +144,7 @@ export function NightShift({ tokenSymbol, escrow, threshold, fill, claimedETH, r
           <ol className="m-0 list-none p-0">
             {steps.map((s) => (
               <li key={s.title} data-step className="step grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-x-5 gap-y-3 border-t-[3px] border-dashed border-dirt-2 py-6 sm:grid-cols-[7.5rem_minmax(0,1fr)_minmax(0,14rem)] sm:gap-x-8">
-                <SpriteCard art={s.art} stage={s.stage} level={s.level} label={s.title} className="step-art w-full" />
+                <SpriteCard bare art={s.art} stage={s.stage} level={s.level} label={s.title} className="w-full" />
                 <div className="min-w-0">
                   <h3 className="m-0 font-logo text-[clamp(1.4rem,2.2vw,1.9rem)] font-bold leading-tight text-cream">{s.title}</h3>
                   <p className="m-0 mt-2 max-w-[56ch] text-[1rem] leading-relaxed text-cream/85">{s.body}</p>

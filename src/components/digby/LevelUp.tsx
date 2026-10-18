@@ -53,7 +53,7 @@ export function LevelUp({ burnedPercent, tokenSymbol }: LevelUpProps) {
       <div className="mx-auto max-w-[84rem]">
         <div className="max-w-[46rem]">
           <h2 id="stages-title" className="display m-0 text-[clamp(2.4rem,5vw,4.2rem)] text-cream">
-            The deeper the yard, the bigger the gravedigger
+            Digby levels up
           </h2>
           <p className="m-0 mt-5 max-w-[56ch] text-[1.05rem] leading-relaxed text-mist">
             Digby levels up with the share of all {tokenSymbol} sitting at 0x…dEaD, read live from the chain. Five stages, each with new gear. No one can skip one: the only way up is more burials.
@@ -83,15 +83,21 @@ export function LevelUp({ burnedPercent, tokenSymbol }: LevelUpProps) {
             return (
               <li key={s.n} className="flex min-w-0 flex-col gap-3">
                 <div data-stage-card className={`relative ${state === 'now' ? 'shadow-[0_0_0_3px_var(--color-ecto)]' : 'shadow-[0_0_0_3px_var(--color-ink-soft)]'}`}>
-                  <SpriteCard art={state === 'now' ? 'dig' : 'idle'} stage={s.n} label={`Digby at stage ${s.n}, ${s.name}: ${s.gear}`} className={`w-full ${state === 'ahead' ? 'opacity-55 grayscale-[0.6]' : ''}`} />
+                  <SpriteCard
+                    art={state === 'now' ? 'dig' : 'idle'}
+                    stage={s.n}
+                    locked={state === 'ahead'}
+                    label={state === 'ahead' ? `Stage ${s.n} is locked until ${pctLabel(s.from)} of the supply is buried` : `Digby at stage ${s.n}, ${s.name}: ${s.gear}`}
+                    className="w-full"
+                  />
                   {state === 'now' ? <span className="label absolute left-0 top-0 bg-ecto px-2 py-1 text-[0.65rem] text-ink">now</span> : null}
                 </div>
                 <div>
                   <div className="label text-[0.7rem] text-mist">
                     stage {s.n} · {s.from === 0 ? 'from day one' : `${pctLabel(s.from)} buried`}
                   </div>
-                  <h3 className={`m-0 mt-1 font-logo text-[1.4rem] font-bold leading-tight ${state === 'ahead' ? 'text-mist' : 'text-cream'}`}>{s.name}</h3>
-                  <p className="m-0 mt-1 text-[0.95rem] leading-snug text-mist">{s.blurb}</p>
+                  <h3 className={`m-0 mt-1 font-logo text-[1.4rem] font-bold leading-tight ${state === 'ahead' ? 'text-mist' : 'text-cream'}`}>{state === 'ahead' ? '???' : s.name}</h3>
+                  <p className="m-0 mt-1 text-[0.95rem] leading-snug text-mist">{state === 'ahead' ? `New gear unlocks when ${pctLabel(s.from)} of the supply is in the ground.` : s.blurb}</p>
                 </div>
               </li>
             );

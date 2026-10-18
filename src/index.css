@@ -429,12 +429,6 @@
 .step > * {
   transition: opacity 0.24s steps(3), filter 0.24s steps(3);
 }
-.step-art {
-  box-shadow: 0 0 0 3px var(--color-dirt-lo);
-}
-.step[data-lit="true"] .step-art {
-  box-shadow: 0 0 0 3px var(--color-gold);
-}
 
 /* Digby's hit area in the yard: invisible until hovered or focused, then a stepped ecto outline */
 .poke-zone {
