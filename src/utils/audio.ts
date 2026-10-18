@@ -11,6 +11,26 @@ class SoundController {
     }
   }
 
+  /**
+   * Browsers keep audio silent until the visitor clicks, taps or types on the page. Call this
+   * from such an event so later sounds (the grave bell when a burial lands) can play.
+   */
+  public unlock() {
+    try {
+      this.init();
+      if (this.ctx && this.ctx.state === 'suspended') void this.ctx.resume();
+    } catch {
+      // no audio on this device
+    }
+  }
+
+  /** Poking Digby: a shovel thunk and a little rattle, loud enough for laptop speakers. */
+  public playPokeSound() {
+    this.playTone(196, 'square', 0.08, 0.07);
+    setTimeout(() => this.playTone(523.25, 'square', 0.06, 0.05), 70);
+    setTimeout(() => this.playTone(392, 'square', 0.09, 0.05), 140);
+  }
+
   public playTone(freq: number, type: OscillatorType, duration: number, volume: number = 0.08) {
     if (!this.enabled) return;
     try {

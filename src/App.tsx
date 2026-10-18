@@ -75,8 +75,28 @@ export function App() {
 
   const pokeDigby = () => {
     setPokes((prev) => prev + 1);
-    sounds.playTone(110, 'square', 0.07, 0.06);
+    sounds.playPokeSound();
   };
+
+  // the mute button covers every sound on the page, not just the grave bell
+  useEffect(() => {
+    sounds.enabled = config.soundEnabled !== false;
+  }, [config.soundEnabled]);
+
+  // audio stays locked until the first click, tap or key press; open it then so the bell can ring later
+  useEffect(() => {
+    const unlock = () => {
+      sounds.unlock();
+      window.removeEventListener('pointerdown', unlock);
+      window.removeEventListener('keydown', unlock);
+    };
+    window.addEventListener('pointerdown', unlock);
+    window.addEventListener('keydown', unlock);
+    return () => {
+      window.removeEventListener('pointerdown', unlock);
+      window.removeEventListener('keydown', unlock);
+    };
+  }, []);
 
   const navigateToHome = () => {
     window.history.pushState({}, '', '/');
