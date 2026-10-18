@@ -274,7 +274,8 @@ function note(type: "warn" | "error", message: string) {
 }
 
 /** Warn (at most hourly) when the operator wallet is running out of ETH for gas. */
-const LOW_GAS_WEI = ethers.parseEther("0.0005");
+// the buy keeps 0.0008 ETH back for gas; warn a little above that
+const LOW_GAS_WEI = ethers.parseEther("0.001");
 let lastGasWarn = 0;
 let gasWei: bigint | null = null;
 async function checkGas() {
@@ -288,6 +289,8 @@ async function checkGas() {
     // RPC hiccup: try again next tick
   }
 }
+
+let lastEscrowLine = "";
 
 async function executeCycle() {
   lastTickAt = Date.now();
@@ -396,10 +399,11 @@ async function executeCycle() {
     botState.escrowBalanceETH = claimableETH;
     botState.lastCycleTime = new Date().toLocaleTimeString();
 
-    if (isBurnCycle) {
-      addLog("info", `[Cycle #${currentCycleNum} - BURN] Escrow Fee: ${claimableETH} ETH (Target: ${cycleThresholdETH} ETH)`);
-    } else {
-      addLog("info", `[Cycle #${currentCycleNum} - KEEP] Escrow Fee: ${claimableETH} ETH (Target: ${cycleThresholdETH} ETH)`);
+    // log the lantern only when it changes, so 80 lines of history keep the real claims, buys and burns
+    const escrowLine = `[Cycle #${currentCycleNum} - ${isBurnCycle ? "BURN" : "KEEP"}] Escrow Fee: ${claimableETH} ETH (Target: ${cycleThresholdETH} ETH)`;
+    if (escrowLine !== lastEscrowLine) {
+      lastEscrowLine = escrowLine;
+      addLog("info", escrowLine);
     }
 
     const thresholdWei = ethers.parseEther(cycleThresholdETH);
