@@ -23,7 +23,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const MemexAdmin = lazy(() => import('./components/MemexAdmin'));
 
 /** X account for the project: empty until there is one. */
-const X_URL = '';
+const X_URL = 'https://x.com/digby_rh';
 /** Telegram group for the project: empty until there is one. */
 const TG_URL = '';
 const EXPLORER_URL = 'https://explorer.mainnet.chain.robinhood.com';

@@ -40,7 +40,7 @@ Angka di tiap judul di bawah udah dihitung dengan aturan itu, dalam kondisi terb
 ## Bio X (146/160)
 Digby keeps the graveyard at 0x…dEaD. Every $DIGBY trade lights his lantern; the bot buys $DIGBY back and Digby buries it. Nothing comes back up.
 
-Kolom website di profil: digbyyard.fun
+Akun X: @digby_rh (https://x.com/digby_rh). Kolom website di profil: digbyyard.fun
 
 ## Urutan posting yang aku saranin
 1. **Beberapa hari sebelum launch:** ganti logo + banner, pin `04-prelaunch.mp4`.
