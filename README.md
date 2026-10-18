@@ -1,6 +1,6 @@
-# MUNCH ($MUNCH) — Autonomous Buyback & Burn Engine (Pons Family v2)
+# DIGBY ($DIGBY) — Autonomous Buyback & Burn Engine (Pons Family v2)
 
-The public site is MUNCH, a pixel virtual pet that only eats $MUNCH: every trade fills its bowl (the fee escrow), the auto-feeder (the bot) buys $MUNCH back and MUNCH eats it at `0x…dEaD`. It evolves with the real share of supply burned. See `PRODUCT.md` for the lore.
+The public site is DIGBY, a pixel gravedigger who keeps the graveyard at `0x…dEaD`: every trade lights his fee lantern (the fee escrow), the night shift (the bot) buys $DIGBY back and Digby buries it at `0x…dEaD`, one headstone per burial. He levels up with the real share of supply buried. See `PRODUCT.md` for the lore.
 
 An autonomous token liquidity, buyback, and burn engine deployed on **Robinhood Chain (Chain ID: 4663)** integrated with **Pons Family v2**.
 

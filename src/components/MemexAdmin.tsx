@@ -16,7 +16,7 @@ import {
   RotateCcw,
   Trash2
 } from 'lucide-react';
-import { COLOR, FEEDER, MUNCHLET, PixelArt } from './munch/sprites';
+import { DigbyMark, SpriteCard } from './digby/Sprite';
 
 interface MemexAdminProps {
   onBack?: () => void;
@@ -290,7 +290,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
   };
 
   const inputClass =
-    'w-full rounded-xl bg-cream-hi px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-soft/70 shadow-[inset_0_0_0_3px_var(--color-ink)] outline-none transition-shadow focus:shadow-[inset_0_0_0_3px_var(--color-ink),0_0_0_4px_var(--color-sun)]';
+    'w-full bg-cream-hi px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-soft/70 shadow-[inset_0_0_0_3px_var(--color-ink)] outline-none transition-shadow focus:shadow-[inset_0_0_0_3px_var(--color-ink),0_0_0_4px_var(--color-sun)]';
   const labelClass = 'flex items-center gap-2 font-logo text-[1.15rem] leading-none text-ink';
   const validBadge = 'inline-flex items-center gap-1 bg-lcd-ink px-1.5 py-0.5 font-lcd text-[0.72rem] uppercase text-lcd';
   const hintClass = 'm-0 text-[0.82rem] leading-snug text-ink-soft';
@@ -303,36 +303,33 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
         <div className="flex items-center gap-3">
           <button onClick={navigateToDashboard} className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-cream transition-colors hover:text-sun">
             <ArrowLeft className="h-4 w-4" />
-            <span className="hidden sm:inline">Back to MUNCH</span>
+            <span className="hidden sm:inline">Back to the yard</span>
           </button>
           <div className="h-5 w-[2px] bg-ink-soft" />
           <div className="flex items-center gap-2.5">
-            <PixelArt rows={MUNCHLET} pal={COLOR} className="h-8 w-9" />
-            <span className="font-logo text-[1.55rem] leading-none text-cream">MUNCH</span>
+            <DigbyMark className="h-8 w-9" />
+            <span className="font-logo text-[1.55rem] font-bold leading-none text-cream">DIGBY</span>
             <span className="lcd px-2 py-0.5 font-lcd text-[0.72rem] uppercase">keeper</span>
           </div>
         </div>
       </header>
 
-      {/* The back of the toy: where the keeper sets up the auto-feeder */}
+      {/* The groundskeeper's office: where the night shift is set up */}
       <main className="flex flex-1 items-center justify-center p-4 sm:p-6 md:p-8">
         <div className="w-full max-w-xl">
-          <div className="cardboard relative rounded-[22px] px-4 pb-5 pt-9 sm:px-7 sm:pb-7">
-            {/* die-cut hang tab */}
-            <span className="absolute left-1/2 top-3 h-[14px] w-24 -translate-x-1/2 rounded-full bg-ink shadow-[inset_0_3px_0_rgba(0,0,0,0.4)]" aria-hidden="true" />
-
+          <div className="cardboard relative px-4 pb-5 pt-9 sm:px-7 sm:pb-7">
             <div className="mb-5 flex items-end justify-between gap-4">
               <div>
                 <span className="lcd inline-block px-2 py-0.5 font-lcd text-[0.75rem] uppercase">keeper only</span>
-                <h1 className="m-0 mt-3 font-logo text-[clamp(2rem,6vw,2.7rem)] leading-[1] text-ink">Auto-feeder settings</h1>
+                <h1 className="m-0 mt-3 font-logo text-[clamp(2rem,6vw,2.7rem)] leading-[1] text-ink">Night shift settings</h1>
                 <p className="m-0 mt-2 max-w-[44ch] text-[0.95rem] font-semibold leading-snug text-ink">
-                  The keeper&apos;s key runs the auto-feeder. Set it, and the token MUNCH eats. Every feeding runs from what you save here.
+                  The keeper&apos;s key runs the night shift. Set it and the token Digby buries. Every shift runs from what you save here.
                 </p>
               </div>
-              <PixelArt rows={FEEDER} pal={COLOR} className="hidden h-20 w-20 shrink-0 sm:block" />
+              <SpriteCard art="dig" stage={3} label="Digby digging" className="hidden w-24 shrink-0 shadow-[0_0_0_3px_var(--color-ink)] sm:block" />
             </div>
 
-            <form onSubmit={handleSave} className="space-y-6 rounded-2xl bg-cream p-5 text-ink shadow-[0_0_0_3px_var(--color-ink)] sm:p-6">
+            <form onSubmit={handleSave} className="space-y-6 bg-cream p-5 text-ink shadow-[0_0_0_3px_var(--color-ink)] sm:p-6">
               {/* Field 1: Private Key */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-3">
@@ -370,7 +367,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
 
                 {/* Derived Wallet Address Display */}
                 {derivedWallet ? (
-                  <div className="lcd flex items-center gap-2 rounded-lg px-3 py-2 shadow-[inset_0_0_0_3px_var(--color-lcd-ink)]">
+                  <div className="lcd flex items-center gap-2 px-3 py-2 shadow-[inset_0_0_0_3px_var(--color-lcd-ink)]">
                     <Wallet className="h-4 w-4 shrink-0" />
                     <div className="truncate font-mono text-[0.75rem]">
                       <span className="font-lcd uppercase">keeper wallet </span>
@@ -429,7 +426,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                 {tokenAddress.trim().length > 0 && !isTokenValid ? (
                   <p className={warnClass}>Must be a valid 42-character EVM address (starting with 0x).</p>
                 ) : (
-                  <p className={hintClass}>The token the auto-feeder buys back and MUNCH eats at 0x…dEaD.</p>
+                  <p className={hintClass}>The token the night shift buys back and Digby buries at 0x…dEaD.</p>
                 )}
               </div>
 
@@ -438,7 +435,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                 <div className="flex items-center justify-between gap-3">
                   <label className={labelClass}>
                     <Landmark className="h-4 w-4" />
-                    Snack jar address
+                    Wages address
                     <span className="font-body text-[0.75rem] font-semibold text-ink-soft">(optional)</span>
                   </label>
                   {treasuryAddress.trim() && isTreasuryValid && (
@@ -453,7 +450,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                   type="text"
                   value={treasuryAddress}
                   onChange={(e) => setTreasuryAddress(e.target.value)}
-                  placeholder="0x… (snack jar wallet)"
+                  placeholder="0x… (wages wallet)"
                   className={inputClass}
                   autoComplete="off"
                   spellCheck="false"
@@ -462,14 +459,14 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                 {treasuryAddress.trim().length > 0 && !isTreasuryValid ? (
                   <p className={warnClass}>Must be a valid 42-character EVM address (starting with 0x).</p>
                 ) : (
-                  <p className={hintClass}>Where every other feeding goes (the snack jar). Leave it empty and the ETH stays in the keeper wallet.</p>
+                  <p className={hintClass}>Where every other shift's ETH goes (Digby's wages). Leave it empty and the ETH stays in the keeper wallet.</p>
                 )}
               </div>
 
               {/* Status Message */}
               {statusMessage && (
                 <div
-                  className={`flex items-start gap-2 rounded-lg p-3 text-[0.8rem] ${
+                  className={`flex items-start gap-2 p-3 text-[0.8rem] ${
                     saveStatus === 'success' ? 'lcd font-lcd shadow-[inset_0_0_0_3px_var(--color-lcd-ink)]' : 'bg-cream-hi font-mono text-bubble-lo shadow-[inset_0_0_0_3px_var(--color-bubble-lo)]'
                   }`}
                 >

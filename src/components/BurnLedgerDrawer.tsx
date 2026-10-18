@@ -105,7 +105,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
               time: timeOnly,
               type: "burn",
               tag: "BURN",
-              message: `Permanently burned ${new Intl.NumberFormat("en-US").format(Math.round(burnedTokens || 250000))} $MUNCH, eaten by MUNCH at 0x000...dEaD`,
+              message: `Permanently burned ${new Intl.NumberFormat("en-US").format(Math.round(burnedTokens || 250000))} $DIGBY, buried by Digby at 0x000...dEaD`,
               txHash: entry.burnTx || entry.claimTx || "",
             });
           }
@@ -220,18 +220,18 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
   };
 
   const TAG_LABELS: Record<NormalizedLogItem["type"], string> = {
-    burn: "eaten",
-    buyback: "snacks",
-    claim: "feeding",
+    burn: "buried",
+    buyback: "bought",
+    claim: "lantern",
     trigger: "trade",
-    system: "feeder",
+    system: "night shift",
   };
 
   const FILTER_LABELS: Record<typeof selectedFilter, string> = {
     all: "all",
-    burn: "meals",
+    burn: "burials",
     buyback: "buys",
-    claim: "feedings",
+    claim: "claims",
   };
 
   return (
@@ -250,7 +250,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                         <div className="flex items-start justify-between gap-4 px-5 pb-5 pt-6 sm:px-7">
               <div>
                 <h3 id="burn-log-title" className="m-0 display text-[2.8rem] text-pen">
-                  The meal log
+                  The grave register
                 </h3>
                 <p className="m-0 mt-2 text-[0.98rem] text-pen-soft">
                   Live from Robinhood Chain · {filteredLogs.length} {filteredLogs.length === 1 ? "entry" : "entries"}
@@ -261,7 +261,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                 onClick={onClose}
                 aria-label="Close the log"
                 title="Close (Esc)"
-                className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-pen/40 text-pen transition-colors hover:border-marker hover:text-marker"
+                className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center border border-pen/40 text-pen transition-colors hover:border-marker hover:text-marker"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -277,7 +277,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                     role="tab"
                     aria-selected={selectedFilter === filter}
                     onClick={() => setSelectedFilter(filter)}
-                    className={`cursor-pointer rounded-full px-3 py-1 display text-[0.95rem] transition-colors ${
+                    className={`cursor-pointer px-3 py-1 display text-[0.95rem] transition-colors ${
                       selectedFilter === filter ? "bg-pen text-paper" : "text-pen-soft hover:text-pen"
                     }`}
                   >
@@ -295,7 +295,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="search tx"
                     aria-label="Search the log"
-                    className="w-full rounded-full border border-pen/30 bg-cream-hi py-1.5 pl-8 pr-3 font-mono text-[0.82rem] text-pen placeholder:text-pen-soft focus:border-pen focus:outline-none"
+                    className="w-full border border-pen/30 bg-cream-hi py-1.5 pl-8 pr-3 font-mono text-[0.82rem] text-pen placeholder:text-pen-soft focus:border-pen focus:outline-none"
                   />
                 </div>
                 <button
@@ -344,7 +344,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
 
             {/* Footer */}
             <div className="flex items-center justify-between gap-3 border-t border-pen/25 bg-paper/85 px-5 py-4 text-[0.85rem] text-pen-soft sm:px-7">
-              <span className="truncate font-mono">MUNCH's mouth · 0x000...dEaD</span>
+              <span className="truncate font-mono">Digby's yard · 0x000...dEaD</span>
               <button type="button" onClick={onClose} className="btn-pen cursor-pointer bg-paper px-4 py-1.5 text-[0.95rem]">
                 close
               </button>

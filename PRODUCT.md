@@ -2,17 +2,18 @@
 
 <!-- impeccable:product-schema 1 -->
 
-## Current brand (2026-10-17): MUNCH ($MUNCH)
+## Current brand (2026-10-18): DIGBY ($DIGBY)
 
-The public site was redrawn as **MUNCH ($MUNCH)**, a pixel virtual pet (Tamagotchi-style, original art, no Bandai names, logos or shells). Engine, API, tokenomics and `/memex` are unchanged.
+The public site was redrawn as **DIGBY ($DIGBY)**, a pixel graveyard and its gravedigger. Engine, API, tokenomics and `/memex` are unchanged.
 
-- Lore: someone threw a cheap virtual-pet handheld into 0x…dEaD, the address nothing comes back from. The egg hatched anyway. The only food down there is tokens, and MUNCH only eats $MUNCH.
-- Mascot: **MUNCH**, a round purple pet with a huge mouth. It evolves with the real share of supply burned: **egg** (<0.1%), **munchlet** (0.1–1%), **chomper** (1–5%), **MUNCH** (5%+). Thresholds are lore, tunable in `src/components/munch/stages.ts`.
-- Terms: fee escrow → **the food bowl / hunger meter**; claim → **feeding time**; the bot → **the auto-feeder**; buyback → **buying snacks**; burn → **MUNCH eats it** (at 0x…dEaD, "its mouth"); odd runs → **meals**; even runs → **the snack jar** (project wallet, shown openly); burn log → **the meal log**; holders → **keepers**.
-- Voice: cute on top, deadpan underneath ("nom.", "no refunds.", "tastes like supply.").
-- Fonts: Bagel Fat One (logo/headings on plastic), DotGothic16 (anything on the LCD), Gabarito (body), JetBrains Mono (addresses).
-- Not live yet: no domain, no X, no CA. $MUNCH needs a new Pons launch; the on-chain name/ticker of the current token cannot change.
-- Previous brands (Lava Pit/Brr, Black Void, Mort's Ghost Train, Sherwood) are retired; the Black Void sections below are historical.
+- Lore: every token ever sent to 0x…dEaD had to go somewhere. **Digby**, a hooded skeleton with a shovel and a lantern, keeps the graveyard at the dead address and buries it. No days off. Catchphrase: "Another one for the ground."
+- Mascot: **Digby**. He levels up with the real share of supply buried: **Night Shift** (0–0.5%, wooden shovel, patched robe), **Iron Spade** (0.5–1%), **Lanternbearer** (1–2.5%, green lantern), **Keeper** (2.5–5%, keeper's cloak), **The Undertaker** (5%+, top hat, gold spade). Thresholds are lore, tunable in `src/components/digby/stages.ts`.
+- Terms: fee escrow → **the fee lantern**; claim threshold → **a full lantern**; the bot → **the night shift**; claim → **the night shift claims it**; buyback → **buying $DIGBY**; burn → **a burial** (Digby buries it); dead address → **the graveyard / the yard**; odd runs → **burial shifts**; even runs → **Digby's wages** (project wallet, shown openly); burn log → **the grave register**; one burn → **a grave** with a headstone; ghosts → one per grave.
+- Voice: grumpy, deadpan, a little cosy ("no refunds down here.", "nothing comes back up.").
+- Fonts: Pixelify Sans (wordmark, headings, numbers), Silkscreen (labels, buttons), Atkinson Hyperlegible (body), JetBrains Mono (addresses).
+- Art: all sprites are built in code in `src/components/digby/pixels.ts`; the X kit renders from the same code (`konten-x/render/`).
+- Not live yet: no domain, no X, no CA. $DIGBY needs a new Pons launch; the on-chain name/ticker of the current token cannot change.
+- Previous brands (MUNCH, Lava Pit/Brr, Black Void, Mort's Ghost Train, Sherwood) are retired; the Black Void sections below are historical.
 
 ## Platform
 
