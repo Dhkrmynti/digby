@@ -89,6 +89,8 @@
   body {
     margin: 0;
     font-family: var(--font-body);
+    /* Pixelify draws "fi" as one glyph that reads like an A */
+    font-variant-ligatures: none;
     background-color: var(--color-ink);
     color: var(--color-cream);
     -webkit-font-smoothing: antialiased;

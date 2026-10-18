@@ -1,4 +1,5 @@
 import { Composition, Folder, Still } from "remotion";
+import { DigbyBanner, DigbyLaunchGif, DigbyLogo, DigbyPrelaunch, DigbyUnderground, HookHowItWorks, HookNoRefunds, HookStages, LAUNCH_GIF_FRAMES, PostRip } from "./digby/Comps";
 import { Demo } from "./Demo";
 import { RideLoop, TunnelPOV } from "./Motion";
 import { SellPOV } from "./SellPOV";
@@ -67,6 +68,17 @@ import { Banner, Logo, OgImage, PostAdmitOne, PostHowItWorks, PostMeetMort, Post
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Digby">
+        <Still id="DigbyLogo" component={DigbyLogo} width={1000} height={1000} />
+        <Still id="DigbyBanner" component={DigbyBanner} width={1500} height={500} />
+        <Composition id="DigbyPrelaunch" component={DigbyPrelaunch} width={1080} height={1350} fps={30} durationInFrames={450} />
+        <Composition id="DigbyLaunchGif" component={DigbyLaunchGif} width={720} height={720} fps={8} durationInFrames={LAUNCH_GIF_FRAMES} />
+        <Composition id="DigbyUnderground" component={DigbyUnderground} width={1080} height={1350} fps={30} durationInFrames={330} />
+        <Still id="DigbyHowItWorks" component={HookHowItWorks} width={1080} height={1350} />
+        <Still id="DigbyStages" component={HookStages} width={1600} height={900} />
+        <Still id="DigbyNoRefunds" component={HookNoRefunds} width={1080} height={1080} />
+        <Still id="DigbyRip" component={PostRip} width={1080} height={1350} defaultProps={{ amount: "[AMOUNT]", grave: 1, tx: "[BURN TX]" }} />
+      </Folder>
       <Folder name="Profile">
         <Still id="Logo" component={Logo} width={1000} height={1000} />
         <Still id="Banner" component={Banner} width={1500} height={500} />

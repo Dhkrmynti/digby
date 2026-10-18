@@ -1,48 +1,110 @@
 # DIGBY ($DIGBY) · X kit
 
+Semua gambar dan video dirender dari sprite yang sama dengan situs (`src/components/digby/`), lewat Remotion studio (`studio/src/digby/`). Jadi Digby di postingan sama persis dengan yang di web.
+
 | File | Pakai untuk |
 |---|---|
-| 01-logo-x.png (1000×1000), 01-logo-x-400.png | Foto profil X (Digby stage 3, aman buat crop bulat) |
-| 02-banner-x.png (1500×500) | Header X (pojok kiri bawah dikosongin buat avatar) |
-| 03-link-preview.png (1200×630) | Gambar preview link; versi yang sama ada di `public/og-image.png` |
+| 01-logo-x.png (1000×1000), 01-logo-x-400.png | Foto profil X (aman buat crop bulat) |
+| 02-banner-x.png (1500×500) | Header X: kuburan sebelum launch, plot #1 udah digali (pojok kiri bawah aman buat avatar) |
+| 03-link-preview.png (1200×630) | Preview link; versi yang sama ada di `public/og-image.png` |
+| 04-prelaunch.mp4 (1080×1350, 15 dtk) | Video teaser sebelum launch |
+| 05-launch.gif (720×720, loop) | Postingan launch: burial pertama, plot #1 jadi grave #1. CA ditaruh di caption |
+| 06-hook-cara-kerja.png (1080×1350) | Hook: cara kerja burn dalam 4 langkah |
+| 07-hook-stage.png (1600×900) | Hook: 5 tahap Digby, ngajak orang nebak tahap mana yang kebuka duluan |
+| 08-hook-meme-no-refunds.png (1080×1080) | Meme: "sold your $DIGBY?" / "no refunds down here." |
+| 09-template-rip.png (1080×1350) | Template tiap burial asli: isi jumlah dan tx, render ulang (lihat di bawah) |
+| 10-hook-underground.mp4 (1080×1350, 11 dtk) | Hook: makam bertambah, kamera turun ke bawah tanah, satu peti per makam. Ada label "illustration" |
 
-Semua gambar dirender dari sprite yang sama dengan situs (`src/components/digby/pixels.ts` dan `canvas.ts`), lewat halaman `render/`. Cara render ulang:
+## Render ulang
+```
+cd konten-x/studio
+npm ci
+npx remotion still DigbyRip ../09-rip-grave-3.png --props='{"amount":"4,120,330","grave":3,"tx":"0xabc..."}'
+npx remotion render DigbyPrelaunch ../04-prelaunch.mp4
+npx remotion render DigbyLaunchGif ../05-launch.gif --codec=gif
+```
+Komposisi lain: `DigbyLogo`, `DigbyBanner`, `DigbyUnderground`, `DigbyHowItWorks`, `DigbyStages`, `DigbyNoRefunds`. Buka `npm run dev` buat lihat semuanya di Remotion Studio (folder "Digby").
 
-1. `npm run dev` di root proyek.
-2. Buka `http://localhost:5173/konten-x/render/index.html?shot=logo` (atau `banner`, `og`) dengan ukuran jendela yang pas (1000×1000, 1500×500, 1200×630), lalu screenshot. Chrome headless: `chrome --headless=new --window-size=1200,630 --screenshot=out.png <url>`.
-3. Favicon: `npx tsx konten-x/render/mark.ts` (nulis `public/digby-mark.svg`).
+Situs: https://digbyyard.fun. `og:image` di `index.html` udah pakai URL absolut `https://digbyyard.fun/og-image.png` (X butuh URL absolut).
 
-Kit MUNCH yang lama dipindah ke `../arsip-konten/munch-x/`.
-
-Catatan: X butuh URL absolut untuk `og:image`. Setelah domain ada, ganti `/og-image.png` di `index.html` jadi `https://<domain>/og-image.png`.
+---
 
 ## Bio X
 Digby keeps the graveyard at 0x…dEaD. Every $DIGBY trade lights his lantern; the night shift buys $DIGBY back and Digby buries it. Nothing comes back up.
 
-## Post: perkenalan (pinned)
+Website di profil X: digbyyard.fun
+
+## Urutan posting yang aku saranin
+1. **Beberapa hari sebelum launch:** ganti logo + banner, pin `04-prelaunch.mp4`.
+2. **Selang-seling sebelum launch:** `06-hook-cara-kerja.png`, `07-hook-stage.png`, `08-hook-meme-no-refunds.png`, `10-hook-underground.mp4`.
+3. **Saat launch:** `05-launch.gif` dengan CA di caption, terus pin.
+4. **Tiap burial asli:** `09-template-rip.png` diisi jumlah dan tx-nya.
+
+---
+
+## Post: prelaunch (04-prelaunch.mp4, pin)
 Every token ever sent to 0x…dEaD had to go somewhere.
 
-Digby is the one who puts it there.
+Somebody has to bury it.
 
-Every $DIGBY trade lights his fee lantern → the night shift buys $DIGBY → Digby buries it. One grave per burial. Nothing comes back up.
-Every other shift pays his wages, in the open.
+Meet Digby. He keeps the graveyard at the dead address, and plot #1 is already dug.
 
-He levels up as the supply goes in the ground: Night Shift → Iron Spade → Lanternbearer → Keeper → The Undertaker.
+Every $DIGBY trade lights his lantern. When it's full, the night shift buys $DIGBY back and Digby buries it. One grave per burial. Nothing comes back up.
 
-## Post: lentera hampir penuh
-The lantern is at [XX]%.
+Launching soon on Robinhood Chain.
 
-When it hits 0.01 ETH the night shift claims it, buys $DIGBY and hands Digby the shovel.
+## Post: launch (05-launch.gif)
+$DIGBY is live.
 
-## Post: setelah burial pertama
+The night shift has started. Plot #1 is waiting for its first headstone.
+
+Every trade lights the lantern → the bot buys $DIGBY → Digby buries it at 0x…dEaD.
+
+CA: [PASTE CA]
+
+Robinhood Chain · Pons
+digbyyard.fun
+
+## Post: cara kerja (06-hook-cara-kerja.png)
+How a $DIGBY trade turns into a grave:
+
+1. You trade. A small fee lights the lantern.
+2. The night shift claims it when it's full.
+3. It buys $DIGBY on the open market.
+4. Digby buries it at 0x…dEaD. Gone for good.
+
+Every other shift pays Digby's wages, in the open. Every step is on chain.
+
+## Post: tahap (07-hook-stage.png)
+Digby levels up as the supply goes underground.
+
+Night Shift → Iron Spade → Lanternbearer → Keeper → The Undertaker.
+
+0.5%, 1%, 2.5%, 5% of the supply buried.
+
+Which one do we unlock first?
+
+## Post: meme (08-hook-meme-no-refunds.png)
+sold your $DIGBY?
+
+Digby: "no refunds down here."
+
+## Post: underground (10-hook-underground.mp4)
+Every burial is a coffin under the yard.
+
+The more you trade, the deeper Digby digs. Nothing he buries comes back up.
+
+$DIGBY
+
+## Post: tiap burial (09-template-rip.png)
 RIP.
 
-Grave #1 is up. Digby buried [JUMLAH] $DIGBY.
+Grave #[N] is up. Digby buried [JUMLAH] $DIGBY.
 tx: [LINK TX]
 
 Another one for the ground.
 
 ## Post: naik stage
-Digby hit [X]% of the supply in the ground.
+[X]% of the $DIGBY supply is in the ground.
 
-New gear: [GEAR]. Stage [N]: [NAMA STAGE].
+Digby just unlocked stage [N]: [NAMA STAGE]. New gear: [GEAR].
