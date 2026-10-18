@@ -1,351 +1,503 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-10T02:27:47+00:00",
-  "title": "Design System: VOID",
+  "generatedAt": "2026-10-17T03:35:18.642Z",
+  "title": "Design System: MUNCH",
   "extensions": {
     "colorMeta": {
-      "night": {
-        "role": "neutral",
-        "displayName": "Control-Room Night",
-        "canonical": "oklch(13.6% 0.016 269.4)",
+      "shell": {
+        "role": "primary",
+        "displayName": "Tangerine Shell",
+        "canonical": "#ff7a2f",
+        "oklch": "oklch(72.5% 0.182 46)",
         "tonalRamp": [
-          "oklch(15% 0.016 269.4)",
-          "oklch(26% 0.016 269.4)",
-          "oklch(38% 0.016 269.4)",
-          "oklch(49% 0.016 269.4)",
-          "oklch(61% 0.016 269.4)",
-          "oklch(72% 0.016 269.4)",
-          "oklch(84% 0.016 269.4)",
-          "oklch(95% 0.016 269.4)"
+          "oklch(15% 0.182 46)",
+          "oklch(26.4% 0.182 46)",
+          "oklch(37.9% 0.182 46)",
+          "oklch(49.3% 0.182 46)",
+          "oklch(60.7% 0.182 46)",
+          "oklch(72.1% 0.182 46)",
+          "oklch(83.6% 0.182 46)",
+          "oklch(95% 0.182 46)"
         ]
       },
-      "panel": {
-        "role": "neutral",
-        "displayName": "Console Panel",
-        "canonical": "oklch(20.8% 0.039 267.6)",
+      "shell-hi": {
+        "role": "primary",
+        "displayName": "Shell Highlight",
+        "canonical": "#ffa565",
+        "oklch": "oklch(79.9% 0.133 54.9)",
         "tonalRamp": [
-          "oklch(15% 0.037 267.6)",
-          "oklch(26% 0.039 267.6)",
-          "oklch(38% 0.039 267.6)",
-          "oklch(49% 0.039 267.6)",
-          "oklch(61% 0.039 267.6)",
-          "oklch(72% 0.039 267.6)",
-          "oklch(84% 0.039 267.6)",
-          "oklch(95% 0.039 267.6)"
+          "oklch(15% 0.133 54.9)",
+          "oklch(26.4% 0.133 54.9)",
+          "oklch(37.9% 0.133 54.9)",
+          "oklch(49.3% 0.133 54.9)",
+          "oklch(60.7% 0.133 54.9)",
+          "oklch(72.1% 0.133 54.9)",
+          "oklch(83.6% 0.133 54.9)",
+          "oklch(95% 0.133 54.9)"
         ]
       },
-      "panel-line": {
-        "role": "neutral",
-        "displayName": "Panel Line",
-        "canonical": "oklch(32.0% 0.051 265.3)",
+      "shell-lo": {
+        "role": "primary",
+        "displayName": "Shell Shade",
+        "canonical": "#e0571a",
+        "oklch": "oklch(63% 0.184 40.6)",
         "tonalRamp": [
-          "oklch(15% 0.039 265.3)",
-          "oklch(26% 0.044 265.3)",
-          "oklch(38% 0.048 265.3)",
-          "oklch(49% 0.051 265.3)",
-          "oklch(61% 0.051 265.3)",
-          "oklch(72% 0.051 265.3)",
-          "oklch(84% 0.047 265.3)",
-          "oklch(95% 0.043 265.3)"
+          "oklch(15% 0.184 40.6)",
+          "oklch(26.4% 0.184 40.6)",
+          "oklch(37.9% 0.184 40.6)",
+          "oklch(49.3% 0.184 40.6)",
+          "oklch(60.7% 0.184 40.6)",
+          "oklch(72.1% 0.184 40.6)",
+          "oklch(83.6% 0.184 40.6)",
+          "oklch(95% 0.184 40.6)"
         ]
       },
-      "star": {
-        "role": "neutral",
-        "displayName": "Starlight",
-        "canonical": "oklch(89.0% 0.025 265.6)",
+      "bubble": {
+        "role": "primary",
+        "displayName": "Bubblegum Key",
+        "canonical": "#ff3d7f",
+        "oklch": "oklch(66.9% 0.23 6.1)",
         "tonalRamp": [
-          "oklch(15% 0.025 265.6)",
-          "oklch(26% 0.025 265.6)",
-          "oklch(38% 0.025 265.6)",
-          "oklch(49% 0.025 265.6)",
-          "oklch(61% 0.025 265.6)",
-          "oklch(72% 0.025 265.6)",
-          "oklch(84% 0.025 265.6)",
-          "oklch(95% 0.025 265.6)"
+          "oklch(15% 0.23 6.1)",
+          "oklch(26.4% 0.23 6.1)",
+          "oklch(37.9% 0.23 6.1)",
+          "oklch(49.3% 0.23 6.1)",
+          "oklch(60.7% 0.23 6.1)",
+          "oklch(72.1% 0.23 6.1)",
+          "oklch(83.6% 0.23 6.1)",
+          "oklch(95% 0.23 6.1)"
         ]
       },
-      "star-dim": {
-        "role": "neutral",
-        "displayName": "Dim Starlight",
-        "canonical": "oklch(69.6% 0.042 266.4)",
+      "bubble-lo": {
+        "role": "primary",
+        "displayName": "Bubblegum Skirt",
+        "canonical": "#c41f5c",
+        "oklch": "oklch(53.9% 0.199 6.2)",
         "tonalRamp": [
-          "oklch(15% 0.038 266.4)",
-          "oklch(26% 0.041 266.4)",
-          "oklch(38% 0.042 266.4)",
-          "oklch(49% 0.042 266.4)",
-          "oklch(61% 0.042 266.4)",
-          "oklch(72% 0.042 266.4)",
-          "oklch(84% 0.042 266.4)",
-          "oklch(95% 0.041 266.4)"
+          "oklch(15% 0.199 6.2)",
+          "oklch(26.4% 0.199 6.2)",
+          "oklch(37.9% 0.199 6.2)",
+          "oklch(49.3% 0.199 6.2)",
+          "oklch(60.7% 0.199 6.2)",
+          "oklch(72.1% 0.199 6.2)",
+          "oklch(83.6% 0.199 6.2)",
+          "oklch(95% 0.199 6.2)"
         ]
       },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Chart Paper",
-        "canonical": "oklch(94.6% 0.017 91.6)",
-        "tonalRamp": [
-          "oklch(15% 0.017 91.6)",
-          "oklch(26% 0.017 91.6)",
-          "oklch(38% 0.017 91.6)",
-          "oklch(49% 0.017 91.6)",
-          "oklch(61% 0.017 91.6)",
-          "oklch(72% 0.017 91.6)",
-          "oklch(84% 0.017 91.6)",
-          "oklch(95% 0.017 91.6)"
-        ]
-      },
-      "paper-face": {
-        "role": "neutral",
-        "displayName": "Paper Face",
-        "canonical": "oklch(96.8% 0.014 88.7)",
-        "tonalRamp": [
-          "oklch(15% 0.014 88.7)",
-          "oklch(26% 0.014 88.7)",
-          "oklch(38% 0.014 88.7)",
-          "oklch(49% 0.014 88.7)",
-          "oklch(61% 0.014 88.7)",
-          "oklch(72% 0.014 88.7)",
-          "oklch(84% 0.014 88.7)",
-          "oklch(95% 0.014 88.7)"
-        ]
-      },
-      "grid": {
-        "role": "neutral",
-        "displayName": "Recorder Grid Orange",
-        "canonical": "oklch(66.8% 0.153 42.9)",
-        "tonalRamp": [
-          "oklch(15% 0.058 42.9)",
-          "oklch(26% 0.071 42.9)",
-          "oklch(38% 0.083 42.9)",
-          "oklch(49% 0.095 42.9)",
-          "oklch(61% 0.106 42.9)",
-          "oklch(72% 0.094 42.9)",
-          "oklch(84% 0.081 42.9)",
-          "oklch(95% 0.069 42.9)"
-        ]
-      },
-      "pen": {
-        "role": "neutral",
-        "displayName": "Pen Blue-Black",
-        "canonical": "oklch(31.7% 0.114 269.5)",
-        "tonalRamp": [
-          "oklch(15% 0.051 269.5)",
-          "oklch(26% 0.060 269.5)",
-          "oklch(38% 0.069 269.5)",
-          "oklch(49% 0.079 269.5)",
-          "oklch(61% 0.087 269.5)",
-          "oklch(72% 0.077 269.5)",
-          "oklch(84% 0.068 269.5)",
-          "oklch(95% 0.059 269.5)"
-        ]
-      },
-      "pen-soft": {
-        "role": "neutral",
-        "displayName": "Soft Pen",
-        "canonical": "oklch(45.4% 0.058 270.2)",
-        "tonalRamp": [
-          "oklch(15% 0.041 270.2)",
-          "oklch(26% 0.045 270.2)",
-          "oklch(38% 0.050 270.2)",
-          "oklch(49% 0.054 270.2)",
-          "oklch(61% 0.058 270.2)",
-          "oklch(72% 0.054 270.2)",
-          "oklch(84% 0.049 270.2)",
-          "oklch(95% 0.045 270.2)"
-        ]
-      },
-      "marker": {
+      "sun": {
         "role": "secondary",
-        "displayName": "Observer's Marker Red",
-        "canonical": "oklch(56.3% 0.195 28.7)",
+        "displayName": "Sun Sticker",
+        "canonical": "#ffd166",
+        "oklch": "oklch(88% 0.135 86.1)",
         "tonalRamp": [
-          "oklch(15% 0.066 28.7)",
-          "oklch(26% 0.082 28.7)",
-          "oklch(38% 0.097 28.7)",
-          "oklch(49% 0.113 28.7)",
-          "oklch(61% 0.127 28.7)",
-          "oklch(72% 0.111 28.7)",
-          "oklch(84% 0.095 28.7)",
-          "oklch(95% 0.080 28.7)"
+          "oklch(15% 0.135 86.1)",
+          "oklch(26.4% 0.135 86.1)",
+          "oklch(37.9% 0.135 86.1)",
+          "oklch(49.3% 0.135 86.1)",
+          "oklch(60.7% 0.135 86.1)",
+          "oklch(72.1% 0.135 86.1)",
+          "oklch(83.6% 0.135 86.1)",
+          "oklch(95% 0.135 86.1)"
         ]
       },
-      "ring": {
-        "role": "primary",
-        "displayName": "Photon Ring Amber",
-        "canonical": "oklch(81.0% 0.152 69.3)",
+      "jar": {
+        "role": "secondary",
+        "displayName": "Snack-Jar Sky",
+        "canonical": "#5ec8f2",
+        "oklch": "oklch(78.7% 0.114 227)",
         "tonalRamp": [
-          "oklch(15% 0.058 69.3)",
-          "oklch(26% 0.070 69.3)",
-          "oklch(38% 0.082 69.3)",
-          "oklch(49% 0.094 69.3)",
-          "oklch(61% 0.105 69.3)",
-          "oklch(72% 0.093 69.3)",
-          "oklch(84% 0.081 69.3)",
-          "oklch(95% 0.069 69.3)"
+          "oklch(15% 0.114 227)",
+          "oklch(26.4% 0.114 227)",
+          "oklch(37.9% 0.114 227)",
+          "oklch(49.3% 0.114 227)",
+          "oklch(60.7% 0.114 227)",
+          "oklch(72.1% 0.114 227)",
+          "oklch(83.6% 0.114 227)",
+          "oklch(95% 0.114 227)"
         ]
       },
-      "ring-hot": {
-        "role": "primary",
-        "displayName": "Ring Hot",
-        "canonical": "oklch(92.3% 0.083 85.0)",
+      "jar-ink": {
+        "role": "secondary",
+        "displayName": "Jar Ink",
+        "canonical": "#12607f",
+        "oklch": "oklch(46% 0.086 230.8)",
         "tonalRamp": [
-          "oklch(15% 0.045 85.0)",
-          "oklch(26% 0.052 85.0)",
-          "oklch(38% 0.059 85.0)",
-          "oklch(49% 0.065 85.0)",
-          "oklch(61% 0.071 85.0)",
-          "oklch(72% 0.064 85.0)",
-          "oklch(84% 0.058 85.0)",
-          "oklch(95% 0.051 85.0)"
+          "oklch(15% 0.086 230.8)",
+          "oklch(26.4% 0.086 230.8)",
+          "oklch(37.9% 0.086 230.8)",
+          "oklch(49.3% 0.086 230.8)",
+          "oklch(60.7% 0.086 230.8)",
+          "oklch(72.1% 0.086 230.8)",
+          "oklch(83.6% 0.086 230.8)",
+          "oklch(95% 0.086 230.8)"
         ]
       },
-      "fuel": {
+      "lcd": {
+        "role": "neutral",
+        "displayName": "LCD Screen",
+        "canonical": "#c4cfa1",
+        "oklch": "oklch(83.4% 0.063 118.7)",
+        "tonalRamp": [
+          "oklch(15% 0.063 118.7)",
+          "oklch(26.4% 0.063 118.7)",
+          "oklch(37.9% 0.063 118.7)",
+          "oklch(49.3% 0.063 118.7)",
+          "oklch(60.7% 0.063 118.7)",
+          "oklch(72.1% 0.063 118.7)",
+          "oklch(83.6% 0.063 118.7)",
+          "oklch(95% 0.063 118.7)"
+        ]
+      },
+      "lcd-ink": {
+        "role": "neutral",
+        "displayName": "LCD Ink",
+        "canonical": "#2f3a22",
+        "oklch": "oklch(33.1% 0.043 128.5)",
+        "tonalRamp": [
+          "oklch(15% 0.043 128.5)",
+          "oklch(26.4% 0.043 128.5)",
+          "oklch(37.9% 0.043 128.5)",
+          "oklch(49.3% 0.043 128.5)",
+          "oklch(60.7% 0.043 128.5)",
+          "oklch(72.1% 0.043 128.5)",
+          "oklch(83.6% 0.043 128.5)",
+          "oklch(95% 0.043 128.5)"
+        ]
+      },
+      "lcd-soft": {
+        "role": "neutral",
+        "displayName": "LCD Soft Ink",
+        "canonical": "#45502f",
+        "oklch": "oklch(41.2% 0.053 123.7)",
+        "tonalRamp": [
+          "oklch(15% 0.053 123.7)",
+          "oklch(26.4% 0.053 123.7)",
+          "oklch(37.9% 0.053 123.7)",
+          "oklch(49.3% 0.053 123.7)",
+          "oklch(60.7% 0.053 123.7)",
+          "oklch(72.1% 0.053 123.7)",
+          "oklch(83.6% 0.053 123.7)",
+          "oklch(95% 0.053 123.7)"
+        ]
+      },
+      "lcd-mid": {
+        "role": "neutral",
+        "displayName": "Half-Lit Pixel",
+        "canonical": "#8a9666",
+        "oklch": "oklch(65.1% 0.069 119.8)",
+        "tonalRamp": [
+          "oklch(15% 0.069 119.8)",
+          "oklch(26.4% 0.069 119.8)",
+          "oklch(37.9% 0.069 119.8)",
+          "oklch(49.3% 0.069 119.8)",
+          "oklch(60.7% 0.069 119.8)",
+          "oklch(72.1% 0.069 119.8)",
+          "oklch(83.6% 0.069 119.8)",
+          "oklch(95% 0.069 119.8)"
+        ]
+      },
+      "lcd-ghost": {
+        "role": "neutral",
+        "displayName": "Ghost Pixel",
+        "canonical": "#b4c091",
+        "oklch": "oklch(78.6% 0.065 119.6)",
+        "tonalRamp": [
+          "oklch(15% 0.065 119.6)",
+          "oklch(26.4% 0.065 119.6)",
+          "oklch(37.9% 0.065 119.6)",
+          "oklch(49.3% 0.065 119.6)",
+          "oklch(60.7% 0.065 119.6)",
+          "oklch(72.1% 0.065 119.6)",
+          "oklch(83.6% 0.065 119.6)",
+          "oklch(95% 0.065 119.6)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Plum Ink",
+        "canonical": "#2a1633",
+        "oklch": "oklch(24.2% 0.059 314.5)",
+        "tonalRamp": [
+          "oklch(15% 0.059 314.5)",
+          "oklch(26.4% 0.059 314.5)",
+          "oklch(37.9% 0.059 314.5)",
+          "oklch(49.3% 0.059 314.5)",
+          "oklch(60.7% 0.059 314.5)",
+          "oklch(72.1% 0.059 314.5)",
+          "oklch(83.6% 0.059 314.5)",
+          "oklch(95% 0.059 314.5)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Raised Plum",
+        "canonical": "#3a2245",
+        "oklch": "oklch(29.9% 0.068 314.5)",
+        "tonalRamp": [
+          "oklch(15% 0.068 314.5)",
+          "oklch(26.4% 0.068 314.5)",
+          "oklch(37.9% 0.068 314.5)",
+          "oklch(49.3% 0.068 314.5)",
+          "oklch(60.7% 0.068 314.5)",
+          "oklch(72.1% 0.068 314.5)",
+          "oklch(83.6% 0.068 314.5)",
+          "oklch(95% 0.068 314.5)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Quiet Plum",
+        "canonical": "#5c3a63",
+        "oklch": "oklch(40.5% 0.079 320.6)",
+        "tonalRamp": [
+          "oklch(15% 0.079 320.6)",
+          "oklch(26.4% 0.079 320.6)",
+          "oklch(37.9% 0.079 320.6)",
+          "oklch(49.3% 0.079 320.6)",
+          "oklch(60.7% 0.079 320.6)",
+          "oklch(72.1% 0.079 320.6)",
+          "oklch(83.6% 0.079 320.6)",
+          "oklch(95% 0.079 320.6)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Card Cream",
+        "canonical": "#fff3e2",
+        "oklch": "oklch(96.9% 0.026 76.8)",
+        "tonalRamp": [
+          "oklch(15% 0.026 76.8)",
+          "oklch(26.4% 0.026 76.8)",
+          "oklch(37.9% 0.026 76.8)",
+          "oklch(49.3% 0.026 76.8)",
+          "oklch(60.7% 0.026 76.8)",
+          "oklch(72.1% 0.026 76.8)",
+          "oklch(83.6% 0.026 76.8)",
+          "oklch(95% 0.026 76.8)"
+        ]
+      },
+      "pet-body": {
         "role": "tertiary",
-        "displayName": "Observatory Fuel Teal",
-        "canonical": "oklch(74.7% 0.102 176.5)",
+        "displayName": "MUNCH Purple",
+        "canonical": "#8a5cff",
+        "oklch": "oklch(61.1% 0.229 291)",
         "tonalRamp": [
-          "oklch(15% 0.049 176.5)",
-          "oklch(26% 0.057 176.5)",
-          "oklch(38% 0.065 176.5)",
-          "oklch(49% 0.073 176.5)",
-          "oklch(61% 0.080 176.5)",
-          "oklch(72% 0.072 176.5)",
-          "oklch(84% 0.064 176.5)",
-          "oklch(95% 0.056 176.5)"
+          "oklch(15% 0.229 291)",
+          "oklch(26.4% 0.229 291)",
+          "oklch(37.9% 0.229 291)",
+          "oklch(49.3% 0.229 291)",
+          "oklch(60.7% 0.229 291)",
+          "oklch(72.1% 0.229 291)",
+          "oklch(83.6% 0.229 291)",
+          "oklch(95% 0.229 291)"
         ]
       },
-      "fuel-ink": {
+      "mouth": {
         "role": "tertiary",
-        "displayName": "Fuel Ink",
-        "canonical": "oklch(49.8% 0.083 177.2)",
+        "displayName": "Inside the Mouth",
+        "canonical": "#4a1240",
+        "oklch": "oklch(29.6% 0.103 335.8)",
         "tonalRamp": [
-          "oklch(15% 0.045 177.2)",
-          "oklch(26% 0.052 177.2)",
-          "oklch(38% 0.059 177.2)",
-          "oklch(49% 0.065 177.2)",
-          "oklch(61% 0.071 177.2)",
-          "oklch(72% 0.064 177.2)",
-          "oklch(84% 0.058 177.2)",
-          "oklch(95% 0.051 177.2)"
+          "oklch(15% 0.103 335.8)",
+          "oklch(26.4% 0.103 335.8)",
+          "oklch(37.9% 0.103 335.8)",
+          "oklch(49.3% 0.103 335.8)",
+          "oklch(60.7% 0.103 335.8)",
+          "oklch(72.1% 0.103 335.8)",
+          "oklch(83.6% 0.103 335.8)",
+          "oklch(95% 0.103 335.8)"
         ]
       }
     },
+    "legacyAliases": {
+      "note": "Remapped shared names kept only for the full-log drawer and /memex. Not part of the public system; star-dim is the one alias used publicly, as footer text on plum.",
+      "map": {
+        "night": "ink",
+        "night-2": "ink-2",
+        "panel": "ink-2",
+        "panel-line": "ink-soft",
+        "star": "cream",
+        "star-dim": "#d9c3d6",
+        "paper": "cream",
+        "paper-shade": "#f3dfc6",
+        "grid": "shell",
+        "pen": "ink",
+        "pen-soft": "ink-soft",
+        "marker": "bubble-lo",
+        "marker-deep": "#8e1440",
+        "ring": "bubble",
+        "ring-hot": "sun",
+        "fuel": "jar",
+        "fuel-ink": "jar-ink",
+        "soot": "ink",
+        "char": "ink-2",
+        "wood": "ink-2",
+        "bark": "ink-soft",
+        "ember": "bubble",
+        "flame": "bubble",
+        "hot": "cream",
+        "ash": "#d9c3d6",
+        "ash-light": "cream",
+        "plaque": "cream",
+        "plaque-ink": "ink",
+        "cold": "jar"
+      },
+      "fonts": {
+        "--font-display": "Bagel Fat One",
+        "--font-sign": "Bagel Fat One",
+        "--font-pixel": "DotGothic16",
+        "--font-hand": "DotGothic16"
+      },
+      "helpers": [
+        ".paper",
+        ".plaque",
+        ".btn-pen",
+        ".btn-ring",
+        ".btn-ghost",
+        ".btn-coal",
+        ".sign-lettering"
+      ]
+    },
     "typographyMeta": {
-      "display-hero": {
-        "displayName": "Display Hero",
-        "purpose": "The VOID name only, split around the hole on desktop."
+      "logo": {
+        "displayName": "Logo",
+        "purpose": "The MUNCH wordmark on the pack and finale: cream fill, 0.035em plum stroke, three-step plum extrusion."
       },
       "display": {
         "displayName": "Display",
-        "purpose": "Section headings; condensed uppercase instrument face."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Tagline, sub-section and card headings, orbit step names."
+        "purpose": "Flat plum headings printed on cardboard (box back)."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Slip titles on paper; button text uses the same face at 800."
+        "purpose": "Pack callouts and box-back panel titles."
+      },
+      "lcd-headline": {
+        "displayName": "LCD Headline",
+        "purpose": "Every chapter heading inside the screen."
+      },
+      "lcd-title": {
+        "displayName": "LCD Title",
+        "purpose": "Stage names, feeding steps, the jar."
+      },
+      "lcd-label": {
+        "displayName": "LCD Label",
+        "purpose": "Menu items, readouts, speech bubbles; uppercase."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Explanatory paragraphs, 44ch to 54ch."
+        "purpose": "Explanation on card and screen, 44-48ch."
       },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Uppercase tracked labels for fields, readings and nav."
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Chip and nav labels."
       },
-      "reading": {
-        "displayName": "Reading",
-        "purpose": "Mono tabular readings: addresses, ETH, timestamps, tx hashes."
-      },
-      "hand": {
-        "displayName": "Observer's Hand",
-        "purpose": "Marker-red annotations, the Void's quotes, log remarks."
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Contract and dead addresses, tx hashes, chain ID."
       }
     },
     "shadows": [
       {
-        "name": "paper-drop",
-        "value": "0 30px 60px -30px rgba(0, 0, 0, 0.85)",
-        "purpose": "Every paper surface; only paper casts a shadow."
+        "name": "ink-outline",
+        "value": "0 0 0 3px #2a1633",
+        "purpose": "Every printed chip, panel, pill, sticker and speech bubble (4px on larger objects)."
       },
       {
-        "name": "ring-glow",
-        "value": "0 12px 30px -10px rgba(255, 173, 66, 0.75)",
-        "purpose": "Primary action at rest."
+        "name": "key-skirt",
+        "value": "0 0 0 4px #2a1633, inset 0 -6px 0 #c41f5c, inset 0 4px 0 rgba(255,255,255,0.4), 0 7px 0 4px #2a1633",
+        "purpose": "Buy key at rest; 9px on hover, 1px on press."
       },
       {
-        "name": "ring-glow-hover",
-        "value": "0 18px 40px -12px rgba(255, 173, 66, 0.9)",
-        "purpose": "Primary action on hover."
+        "name": "chip-skirt",
+        "value": "0 0 0 3px #2a1633, 0 4px 0 3px #2a1633",
+        "purpose": "Printed chips; collapses to the outline on press."
       },
       {
-        "name": "lamp-glow",
-        "value": "0 0 10px 2px rgba(255, 173, 66, 0.6)",
-        "purpose": "Live status lamp and the margin thread's pen tip."
+        "name": "logo-extrusion",
+        "value": "0.03em 0.03em 0 #2a1633, 0.06em 0.06em 0 #2a1633, 0.09em 0.09em 0 #2a1633",
+        "purpose": "text-shadow for the wordmark only."
       },
       {
-        "name": "header-settle",
-        "value": "0 12px 30px -18px rgba(0, 0, 0, 0.9)",
-        "purpose": "Fixed header once scrolled past 24px."
+        "name": "card-print-edge",
+        "value": "inset 0 0 0 4px #2a1633, inset 0 6px 0 4px rgba(255,255,255,0.18)",
+        "purpose": "Cardboard cards."
       },
       {
-        "name": "photon-ring",
-        "value": "0 0 0 2px rgba(255,226,166,0.9), 0 0 60px 12px rgba(255,173,66,0.45), 0 0 160px 40px rgba(255,173,66,0.18)",
-        "purpose": "The finale's swallowing circle only."
+        "name": "blister",
+        "value": "inset 0 0 0 3px rgba(255,255,255,0.6), inset 0 -14px 24px rgba(255,255,255,0.16), 0 18px 30px -18px rgba(42,22,51,0.7)",
+        "purpose": "The clear plastic bubble."
+      },
+      {
+        "name": "lcd-recess",
+        "value": "inset 3px 3px 0 rgba(47,58,34,0.28)",
+        "purpose": "The device's own screen."
+      },
+      {
+        "name": "lcd-bezel",
+        "value": "inset 12px 0 0 #3d2147, inset -12px 0 0 #3d2147, inset 18px 0 0 rgba(47,58,34,0.22), inset -18px 0 0 rgba(47,58,34,0.22)",
+        "purpose": "Edge bezel over the in-screen chapter run."
+      },
+      {
+        "name": "sticker-lift",
+        "value": "0 0 0 4px #2a1633, 0 10px 18px -8px rgba(42,22,51,0.6)",
+        "purpose": "Price sticker peeled off the plastic."
+      },
+      {
+        "name": "focus",
+        "value": "outline: 3px solid #2a1633; outline-offset: 3px; box-shadow: 0 0 0 6px #ffd166",
+        "purpose": "Global :focus-visible."
       }
     ],
     "motion": [
       {
-        "name": "ease-out-expo",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Default curve: button lift, mark rotation, re-ink, intro reveals."
+        "name": "press",
+        "value": "transform 0.08s steps(2), box-shadow 0.08s steps(2)",
+        "purpose": "Key and chip press travel."
       },
       {
-        "name": "needle-ballistic",
-        "value": "elastic.out(1.1, 0.35), 1.6s, 0.4s delay",
-        "purpose": "Accretion meter needle overshoot and settle."
+        "name": "fill-swap",
+        "value": "background-color 0.12s steps(2)",
+        "purpose": "Hover fills on chips and LCD keys."
+      },
+      {
+        "name": "px-bob",
+        "value": "1.2s steps(2) infinite",
+        "purpose": "Idle pet bob."
+      },
+      {
+        "name": "px-hop",
+        "value": "0.3s steps(2) infinite alternate",
+        "purpose": "Excited hop."
+      },
+      {
+        "name": "px-wobble",
+        "value": "2.4s steps(1) infinite",
+        "purpose": "Egg wobble from the base."
       },
       {
         "name": "reink",
-        "value": "0.7s ease-out-expo; opacity 0, blur(6px), translateY(0.2em) to rest",
-        "purpose": "Only the changed digits of a live number."
+        "value": "0.35s steps(4)",
+        "purpose": "LCD readout redraw on value change."
       },
       {
-        "name": "count-up",
-        "value": "2s expo.out, once, on entering view",
-        "purpose": "First reading of a live number."
+        "name": "reveal",
+        "value": "steps(3) to steps(5), 0.3-0.5s, staggered",
+        "purpose": "Log rows and box panels entering."
       },
       {
-        "name": "intro",
-        "value": "expo.out timeline: hole from scale 0.7 + blur(18px) over 2s; letters pulled in 1.6s; hero lines stagger 0.09s; slips drop in rotated",
-        "purpose": "First-view arrival."
+        "name": "camera",
+        "value": "power2.out, scrubbed",
+        "purpose": "Pack zoom into the LCD and box flip only."
       },
       {
-        "name": "orbit-pin",
-        "value": "ScrollTrigger pin, +=400%, scrub 0.8, min-width 900px",
-        "purpose": "Pinned five-step orbit sequence; sticky hole below 900px."
-      },
-      {
-        "name": "recorder-trace",
-        "value": "strokeDashoffset 1 to 0, scrub 0.4, per log row",
-        "purpose": "Pen trace drawn with scroll down the observing log."
-      },
-      {
-        "name": "margin-thread",
-        "value": "clip-path reveal + pen tip, scrub 0.3, desktop only",
-        "purpose": "Pen thread in the left margin from hero to log."
-      },
-      {
-        "name": "finale-swallow",
-        "value": "scale 0.18 to 9, power2.in, scrub 0.6, 220svh, min-width 1024px",
-        "purpose": "Black circle swallows the screen; closing copy written into the dark."
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Declared theme ease for smooth non-pixel moves."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Gates every animation above; still canvas frame, needle set directly, numbers render final."
+        "purpose": "Loops, pins and the zoom are off; the page reads as a still sequence."
       }
     ],
     "breakpoints": [
@@ -354,16 +506,8 @@
         "value": "640px"
       },
       {
-        "name": "canvas-density",
-        "value": "700px"
-      },
-      {
         "name": "md",
         "value": "768px"
-      },
-      {
-        "name": "orbit-pin",
-        "value": "900px"
       },
       {
         "name": "lg",
@@ -373,138 +517,143 @@
   },
   "components": [
     {
-      "name": "Ring Button (primary)",
+      "name": "Buy Key",
       "kind": "button",
-      "refersTo": "button-ring",
-      "description": "BUY $VOID and the single primary action per view. Amber pill with a ring glow.",
-      "html": "<button class=\"ds-btn-ring\">buy $VOID <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></button>",
-      "css": ".ds-btn-ring{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--font-display),'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:1.25rem;padding:14px 32px;background:var(--color-ring,#ffad42);color:var(--color-night,#06080f);border:none;border-radius:999px;cursor:pointer;box-shadow:0 12px 30px -10px rgba(255,173,66,.75);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-btn-ring:hover{background:var(--color-ring-hot,#ffe2a6);transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(255,173,66,.9)}.ds-btn-ring:active{transform:translateY(1px)}.ds-btn-ring:focus-visible{outline:2px solid var(--color-ring,#ffad42);outline-offset:3px}"
+      "refersTo": "button-buy",
+      "description": "The one bubblegum key: buy $MUNCH. Lifts on hover, presses into the card.",
+      "html": "<a class=\"ds-btn-buy\" href=\"#\">buy $MUNCH <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"><path d=\"M7 17 17 7M8 7h9v9\"/></svg></a>",
+      "css": ".ds-btn-buy{display:inline-flex;align-items:center;gap:.55rem;border-radius:9999px;background:#ff3d7f;color:#2a1633;font-family:'Bagel Fat One',sans-serif;font-size:1.35rem;padding:16px 32px;text-decoration:none;box-shadow:0 0 0 4px #2a1633,inset 0 -6px 0 #c41f5c,inset 0 4px 0 rgba(255,255,255,.4),0 7px 0 4px #2a1633;transition:transform .08s steps(2),box-shadow .08s steps(2),background-color .12s steps(2)}.ds-btn-buy:hover{background:#ff5c93;transform:translateY(-2px);box-shadow:0 0 0 4px #2a1633,inset 0 -6px 0 #c41f5c,inset 0 4px 0 rgba(255,255,255,.4),0 9px 0 4px #2a1633}.ds-btn-buy:active{transform:translateY(6px);box-shadow:0 0 0 4px #2a1633,inset 0 -3px 0 #c41f5c,inset 0 4px 0 rgba(255,255,255,.4),0 1px 0 4px #2a1633}.ds-btn-buy:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
     },
     {
-      "name": "Ghost Button (night)",
+      "name": "Printed Chip",
       "kind": "button",
-      "refersTo": "button-ghost",
-      "description": "Secondary actions on night beside the primary: chart, full log, copy CA.",
-      "html": "<button class=\"ds-btn-ghost\">chart</button>",
-      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--font-display),'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:1.02rem;padding:10px 20px;background:transparent;color:var(--color-star,#d3dbec);border:1.5px solid var(--color-panel-line,#26324d);border-radius:999px;cursor:pointer;transition:border-color .2s,color .2s}.ds-btn-ghost:hover{border-color:var(--color-ring,#ffad42);color:var(--color-ring-hot,#ffe2a6)}.ds-btn-ghost:focus-visible{outline:2px solid var(--color-ring,#ffad42);outline-offset:3px}"
+      "refersTo": "button-chip",
+      "description": "Cream key printed on the card: chart, log, feed it.",
+      "html": "<button class=\"ds-btn-chip\">chart</button>",
+      "css": ".ds-btn-chip{display:inline-flex;align-items:center;gap:.45rem;border:0;border-radius:9999px;background:#fff3e2;color:#2a1633;font-family:'Gabarito Variable','Gabarito',system-ui,sans-serif;font-weight:700;font-size:.95rem;padding:.6rem 1.05rem;cursor:pointer;box-shadow:0 0 0 3px #2a1633,0 4px 0 3px #2a1633;transition:transform .08s steps(2),box-shadow .08s steps(2),background-color .12s steps(2)}.ds-btn-chip:hover{background:#ffd166}.ds-btn-chip:active{transform:translateY(4px);box-shadow:0 0 0 3px #2a1633}.ds-btn-chip:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
     },
     {
-      "name": "Pen Button (paper)",
+      "name": "Dark Chip",
       "kind": "button",
-      "refersTo": "button-pen",
-      "description": "Every action that lives on chart paper: open the full log, copy, close.",
-      "html": "<div class=\"ds-pen-stage\"><button class=\"ds-btn-pen\">open the full log</button></div>",
-      "css": ".ds-pen-stage{background:var(--color-paper,#f1ede1);padding:20px}.ds-btn-pen{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--font-display),'Big Shoulders Display','Arial Narrow',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:1rem;padding:10px 20px;background:var(--color-paper,#f1ede1);color:var(--color-pen,#1c2a6b);border:1.5px solid color-mix(in oklab,var(--color-pen,#1c2a6b) 60%,transparent);border-radius:999px;cursor:pointer;transition:background-color .2s,color .2s}.ds-btn-pen:hover{background:var(--color-pen,#1c2a6b);color:var(--color-paper,#f1ede1)}.ds-btn-pen:focus-visible{outline:2px solid var(--color-ring,#ffad42);outline-offset:3px}"
+      "refersTo": "button-chip-dark",
+      "description": "Cream-ringed key for actions on the plum ground.",
+      "html": "<div style=\"background:#2a1633;padding:24px\"><button class=\"ds-btn-dark\">open the full log</button></div>",
+      "css": ".ds-btn-dark{display:inline-flex;align-items:center;gap:.5rem;border:0;border-radius:9999px;background:transparent;padding:1rem 1.6rem;font-family:'Gabarito Variable','Gabarito',system-ui,sans-serif;font-weight:700;font-size:1rem;color:#fff3e2;cursor:pointer;box-shadow:inset 0 0 0 3px #fff3e2;transition:background-color .12s steps(2),color .12s steps(2)}.ds-btn-dark:hover{background:#fff3e2;color:#2a1633}.ds-btn-dark:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
     },
     {
-      "name": "CA Field",
+      "name": "LCD Key",
+      "kind": "button",
+      "refersTo": "button-lcd",
+      "description": "A square key drawn on the screen; inverts on hover.",
+      "html": "<div class=\"ds-lcd\" style=\"padding:24px\"><button class=\"ds-btn-lcd\">open full log</button></div>",
+      "css": ".ds-lcd{background-color:#c4cfa1;background-image:linear-gradient(#b4c091 1px,transparent 1px),linear-gradient(90deg,#b4c091 1px,transparent 1px);background-size:4px 4px;color:#2f3a22}.ds-btn-lcd{display:inline-flex;align-items:center;gap:.5rem;border:3px solid #2f3a22;background:transparent;padding:.45rem .9rem;font-family:'DotGothic16',monospace;font-size:.95rem;text-transform:uppercase;color:#2f3a22;cursor:pointer;transition:background-color .12s steps(2),color .12s steps(2)}.ds-btn-lcd:hover{background:#2f3a22;color:#c4cfa1}.ds-btn-lcd:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
+    },
+    {
+      "name": "CA Pill",
       "kind": "input",
       "refersTo": "ca-field",
-      "description": "The contract address as a copyable pill on night, with a paper copy chip.",
-      "html": "<button class=\"ds-ca\"><span class=\"ds-ca-text\"><span class=\"ds-ca-label\">contract address</span><span class=\"ds-ca-addr\">0x6f3c…a91e</span></span><span class=\"ds-ca-chip\">copy</span></button>",
-      "css": ".ds-ca{display:flex;width:100%;max-width:34rem;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;background:color-mix(in oklab,var(--color-panel,#10172a) 80%,transparent);border:1px solid var(--color-panel-line,#26324d);border-radius:999px;text-align:left;cursor:pointer;transition:border-color .2s}.ds-ca:hover{border-color:var(--color-ring,#ffad42)}.ds-ca:focus-visible{outline:2px solid var(--color-ring,#ffad42);outline-offset:3px}.ds-ca-label{display:block;font-family:var(--font-body),'Hanken Grotesk',system-ui,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;color:var(--color-star-dim,#919db8)}.ds-ca-addr{display:block;font-family:var(--font-mono),'JetBrains Mono',monospace;font-size:.84rem;color:var(--color-star,#d3dbec)}.ds-ca-chip{flex-shrink:0;border-radius:999px;background:var(--color-paper,#f1ede1);color:var(--color-pen,#1c2a6b);padding:6px 12px;font-family:var(--font-display),'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:.95rem}"
+      "description": "The contract address printed in a cream pill with a copy key.",
+      "html": "<div class=\"ds-ca\"><span class=\"ds-ca-addr\">0x7a3f…c41d</span><button class=\"ds-ca-copy\">copy</button></div>",
+      "css": ".ds-ca{display:flex;align-items:center;justify-content:space-between;gap:.75rem;border-radius:9999px;background:#fff3e2;padding:.4rem .45rem .4rem 1.1rem;box-shadow:0 0 0 3px #2a1633;max-width:22rem;transition:background-color .12s steps(2)}.ds-ca:hover{background:#fff9f1}.ds-ca-addr{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.85rem;color:#2a1633}.ds-ca-copy{border:0;border-radius:9999px;background:#2a1633;color:#fff3e2;font-family:'Gabarito Variable','Gabarito',system-ui,sans-serif;font-weight:700;padding:.45rem .9rem;cursor:pointer}.ds-ca-copy:hover{background:#ffd166;color:#2a1633}.ds-ca-copy:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
     },
     {
-      "name": "Navigation",
+      "name": "Header",
       "kind": "nav",
-      "refersTo": "icon-button",
-      "description": "Fixed header: mark and name, label-voice section links, round icon buttons.",
-      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-brand\"><svg width=\"36\" height=\"36\" viewBox=\"0 0 48 48\"><ellipse cx=\"24\" cy=\"24\" rx=\"22\" ry=\"5.5\" fill=\"none\" stroke=\"#ffad42\" stroke-width=\"2.4\" opacity=\".55\"/><circle cx=\"24\" cy=\"24\" r=\"12.5\" fill=\"#000\" stroke=\"#ffe2a6\" stroke-width=\"2\"/><path d=\"M2 24c0 3 9.8 5.5 22 5.5S46 27 46 24\" fill=\"none\" stroke=\"#ffad42\" stroke-width=\"2.6\" stroke-linecap=\"round\"/></svg>Void</span><nav class=\"ds-nav-links\"><a href=\"#\">the orbit</a><a href=\"#\">the log</a><a href=\"#\">the watcher</a></nav><button class=\"ds-icon-btn\" aria-label=\"Mute\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z\"/><path d=\"M16 9a5 5 0 0 1 0 6\"/></svg></button></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px;padding:0 40px;background:color-mix(in oklab,var(--color-night,#06080f) 90%,transparent);box-shadow:0 12px 30px -18px rgba(0,0,0,.9)}.ds-nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display),'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.9rem;line-height:.86;color:var(--color-star,#d3dbec)}.ds-nav-links{display:flex;gap:28px}.ds-nav-links a{font-family:var(--font-body),'Hanken Grotesk',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;color:var(--color-star-dim,#919db8);text-decoration:none;transition:color .2s}.ds-nav-links a:hover{color:var(--color-ring,#ffad42)}.ds-nav-links a:focus-visible,.ds-icon-btn:focus-visible{outline:2px solid var(--color-ring,#ffad42);outline-offset:3px}.ds-icon-btn{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--color-panel-line,#26324d);background:transparent;color:var(--color-star-dim,#919db8);cursor:pointer;transition:color .2s,border-color .2s}.ds-icon-btn:hover{border-color:var(--color-ring,#ffad42);color:var(--color-ring,#ffad42)}"
+      "refersTo": "header",
+      "description": "Plum header: wordmark, lowercase links turning sun on hover, round sound toggle.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">MUNCH</span><nav class=\"ds-nav-links\"><a href=\"#\">life</a><a href=\"#\">feeding</a><a href=\"#\">meals</a><a href=\"#\">story</a></nav><button class=\"ds-nav-sound\" aria-label=\"Sound\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M11 5 6 9H2v6h4l5 4V5Z\"/><path d=\"M15.5 8.5a5 5 0 0 1 0 7\"/></svg></button></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px;padding:0 40px;background:#2a1633;color:#fff3e2}.ds-nav-logo{font-family:'Bagel Fat One',sans-serif;font-size:1.55rem;line-height:1}.ds-nav-links{display:flex;gap:1.5rem;font-family:'Gabarito Variable','Gabarito',system-ui,sans-serif;font-weight:600;font-size:.95rem}.ds-nav-links a{color:#fff3e2;text-decoration:none}.ds-nav-links a:hover{color:#ffd166}.ds-nav-links a:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}.ds-nav-sound{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:0;border-radius:9999px;background:transparent;color:#fff3e2;box-shadow:inset 0 0 0 2px #5c3a63;cursor:pointer}.ds-nav-sound:hover{color:#ffd166;box-shadow:inset 0 0 0 2px #ffd166}"
     },
     {
-      "name": "Paper Slip",
+      "name": "LCD Icon Menu",
+      "kind": "nav",
+      "refersTo": "lcd-menu-item-active",
+      "description": "The screen's sticky chapter strip; the current menu is inverted.",
+      "html": "<ol class=\"ds-lcdmenu\"><li><a href=\"#\">LIFE</a></li><li><a href=\"#\" class=\"on\">FEEDING</a></li><li><a href=\"#\">MEALS</a></li><li><a href=\"#\">JAR</a></li><li><a href=\"#\">STATUS</a></li></ol>",
+      "css": ".ds-lcdmenu{display:flex;gap:4px;list-style:none;margin:0;padding:6px 8px;background:#c4cfa1;border-bottom:4px solid #2f3a22}.ds-lcdmenu li{flex:1}.ds-lcdmenu a{display:flex;justify-content:center;padding:6px 8px;font-family:'DotGothic16',monospace;font-size:.9rem;text-transform:uppercase;text-decoration:none;color:#2f3a22;transition:background-color .1s steps(2)}.ds-lcdmenu a:hover{background:#b4c091}.ds-lcdmenu a.on{background:#2f3a22;color:#c4cfa1}.ds-lcdmenu a:focus-visible{outline:3px solid #2a1633;outline-offset:3px;box-shadow:0 0 0 6px #ffd166}"
+    },
+    {
+      "name": "Cardboard Card",
       "kind": "card",
-      "refersTo": "paper-slip",
-      "description": "Strip-chart paper with orange ruling, sprocket holes and a deep drop shadow; holds dense readings and the observer's hand.",
-      "html": "<div class=\"ds-slip\"><div class=\"ds-slip-title\">Observer notes</div><div class=\"ds-slip-label\">falls recorded</div><div class=\"ds-slip-reading\">42</div><div class=\"ds-slip-hand\">all in the log below</div></div>",
-      "css": ".ds-slip{position:relative;max-width:17rem;padding:20px 32px;transform:rotate(-2deg);background-color:var(--color-paper,#f1ede1);color:var(--color-pen,#1c2a6b);background-image:linear-gradient(to right,color-mix(in oklab,#e0703f 42%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklab,#e0703f 42%,transparent) 1px,transparent 1px),linear-gradient(to right,color-mix(in oklab,#e0703f 16%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklab,#e0703f 16%,transparent) 1px,transparent 1px);background-size:40px 40px,40px 40px,8px 8px,8px 8px;box-shadow:0 30px 60px -30px rgba(0,0,0,.85);-webkit-mask:radial-gradient(circle at 10px 50%,transparent 4px,#000 4.5px) left/20px 24px repeat-y,radial-gradient(circle at 10px 50%,transparent 4px,#000 4.5px) right/20px 24px repeat-y,linear-gradient(#000,#000) center/calc(100% - 40px) 100% no-repeat;mask:radial-gradient(circle at 10px 50%,transparent 4px,#000 4.5px) left/20px 24px repeat-y,radial-gradient(circle at 10px 50%,transparent 4px,#000 4.5px) right/20px 24px repeat-y,linear-gradient(#000,#000) center/calc(100% - 40px) 100% no-repeat}.ds-slip-title{font-family:var(--font-display),'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;line-height:.86;font-size:1.55rem}.ds-slip-label{margin-top:12px;font-family:var(--font-body),'Hanken Grotesk',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--color-pen-soft,#4a5577)}.ds-slip-reading{font-family:var(--font-mono),'JetBrains Mono',monospace;font-size:.98rem;font-variant-numeric:tabular-nums lining-nums}.ds-slip-hand{font-family:var(--font-hand),'Reenie Beanie',cursive;font-size:1.5rem;line-height:1;color:var(--color-marker,#cf3228)}"
+      "refersTo": "card-cardboard",
+      "description": "Tangerine printed stock with plum print edge: the pack and the box back.",
+      "html": "<section class=\"ds-cardboard\"><h2 class=\"ds-display\">How MUNCH got in the box</h2><p>Read the back before you feed it. It only goes one way.</p></section>",
+      "css": ".ds-cardboard{border-radius:22px;background-color:#ff7a2f;color:#2a1633;padding:40px;box-shadow:inset 0 0 0 4px #2a1633,inset 0 6px 0 4px rgba(255,255,255,.18)}.ds-display{margin:0 0 12px;font-family:'Bagel Fat One',sans-serif;font-weight:400;font-size:2.6rem;line-height:1}.ds-cardboard p{margin:0;font-family:'Gabarito Variable','Gabarito',system-ui,sans-serif;font-weight:600;font-size:1.05rem}"
     },
     {
-      "name": "Log Tags",
-      "kind": "chip",
-      "refersTo": "log-tag-burn",
-      "description": "Drawer entry tags on paper: burn amber, buyback pen, trigger outlined.",
-      "html": "<div class=\"ds-tag-row\"><span class=\"ds-tag ds-tag-burn\">burn</span><span class=\"ds-tag ds-tag-buyback\">buyback</span><span class=\"ds-tag ds-tag-trigger\">trigger</span></div>",
-      "css": ".ds-tag-row{display:flex;gap:8px;background:var(--color-paper,#f1ede1);padding:16px}.ds-tag{border-radius:999px;padding:2px 10px;font-family:var(--font-display),'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:.85rem}.ds-tag-burn{background:var(--color-ring,#ffad42);color:var(--color-night,#06080f)}.ds-tag-buyback{background:var(--color-pen,#1c2a6b);color:var(--color-paper,#f1ede1)}.ds-tag-trigger{border:1px solid color-mix(in oklab,var(--color-pen,#1c2a6b) 40%,transparent);color:var(--color-pen,#1c2a6b)}"
+      "name": "LCD Window",
+      "kind": "card",
+      "refersTo": "lcd-window",
+      "description": "A framed region on the screen with an inverted title bar: meal log, status.",
+      "html": "<div class=\"ds-lcdwin\"><div class=\"ds-lcdwin-bar\">MEALS · 12</div><div class=\"ds-lcdwin-body\"><span>#11 ATE 1.2M $MUNCH</span><span class=\"ds-lcdwin-tx\">0x91…ab</span></div></div>",
+      "css": ".ds-lcdwin{background:#c4cfa1;box-shadow:0 0 0 4px #2f3a22;color:#2f3a22;font-family:'DotGothic16',monospace}.ds-lcdwin-bar{background:#2f3a22;color:#c4cfa1;padding:10px 16px;font-size:.9rem;text-transform:uppercase}.ds-lcdwin-body{display:flex;justify-content:space-between;padding:16px;font-size:.95rem}.ds-lcdwin-tx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem}"
     },
     {
-      "name": "Accretion Meter",
+      "name": "Speech Bubble",
       "kind": "custom",
-      "refersTo": "paper-slip",
-      "description": "VU-style dial on a paper slip; ballistic needle reads disk fill against critical mass, red past 85%.",
-      "html": "<figure class=\"ds-meter\"><figcaption class=\"ds-meter-cap\"><span>Accretion disk</span><span class=\"ds-meter-pct\">62%</span></figcaption><svg viewBox=\"0 0 240 150\" width=\"100%\"><rect x=\"6\" y=\"8\" width=\"228\" height=\"138\" rx=\"10\" fill=\"#f8f4ea\" stroke=\"#1c2a6b\" stroke-opacity=\".35\"/><path d=\"M180.7 57.6 A96 96 0 0 1 199.6 78.3\" fill=\"none\" stroke=\"#cf3228\" stroke-width=\"7\"/><text x=\"120\" y=\"112\" text-anchor=\"middle\" font-family=\"Big Shoulders Display\" font-weight=\"800\" font-size=\"15\" letter-spacing=\"2\" fill=\"#4a5577\">MASS</text><g class=\"ds-needle\"><line x1=\"120\" y1=\"132\" x2=\"120\" y2=\"40\" stroke=\"#06080f\" stroke-width=\"2.2\" stroke-linecap=\"round\"/></g><circle cx=\"120\" cy=\"132\" r=\"7\" fill=\"#06080f\"/></svg><p class=\"ds-meter-hand\">disk is building</p></figure>",
-      "css": ".ds-meter{margin:0;max-width:17.5rem;padding:20px 32px;background:var(--color-paper,#f1ede1);color:var(--color-pen,#1c2a6b);box-shadow:0 30px 60px -30px rgba(0,0,0,.85);transform:rotate(1.5deg)}.ds-meter-cap{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-display),'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.55rem;line-height:.86}.ds-meter-pct{font-family:var(--font-mono),'JetBrains Mono',monospace;font-weight:400;font-size:.8rem;color:var(--color-pen-soft,#4a5577)}.ds-needle{transform-origin:120px 132px;transform:rotate(13deg);transition:transform 1.6s cubic-bezier(.34,1.56,.64,1)}.ds-meter:hover .ds-needle{transform:rotate(40deg)}.ds-meter-hand{margin:12px 0 0;font-family:var(--font-hand),'Reenie Beanie',cursive;font-size:1.6rem;line-height:1;color:var(--color-marker,#cf3228)}"
+      "refersTo": "speech-bubble",
+      "description": "MUNCH's deadpan line, printed beside the feed key.",
+      "html": "<span class=\"ds-speech\">MUNCH: “nom.”</span>",
+      "css": ".ds-speech{position:relative;display:inline-block;margin-left:12px;border-radius:14px;background:#fff3e2;padding:.45rem .85rem;font-family:'DotGothic16',monospace;font-size:.95rem;color:#2a1633;box-shadow:0 0 0 3px #2a1633}.ds-speech::before{content:'';position:absolute;left:-9px;top:50%;width:10px;height:10px;translate:0 -50%;background:#2a1633;clip-path:polygon(100% 0,100% 100%,0 50%)}"
     }
   ],
   "narrative": {
-    "northStar": "The Night Shift on dEaD-1",
-    "overview": "**Creative North Star: \"The Night Shift on dEaD-1\"**\n\nThe whole system is a radio observatory's control room at night, watching one black hole. Two materials carry everything: the blue-black night of the room and the sky, and pale strip-chart paper ruled in recorder orange that the instruments print onto. Readings are set in a condensed instrument face and in mono; the observer's notes are scrawled over the paper in a red marker hand. The only warm light in the room is the hole's amber photon ring, and it glows brighter as the accretion disk fills.\n\nDensity is split on purpose. Data sits in tight bands on paper slips and the observing-log strip; around them the night sky is left empty. Paper slips are physical objects: they sit slightly rotated (between -2deg and 1.5deg), carry sprocket holes down both edges, and throw a deep soft shadow onto the night. Motion follows instrument physics: needles swing ballistically, the recorder pen draws as you scroll, digits re-ink when a live value changes. Every motion has a still, complete reduced-motion fallback.\n\nThis world rejects the generic dark crypto hero (counter, CA box, stat cards) and the generic space-neon template. The black hole is drawn live on canvas, never shown as a stock nebula or glow blob.",
+    "northStar": "The Toy on the Peg",
+    "overview": "The page is the toy, not a page about a toy. You meet MUNCH the way you would in a shop: a tangerine cardboard backer card with a die-cut hang tab, a clear blister bubble, and inside it a pixel egg-shaped handheld whose screen already shows the live pet, what it has eaten and how hungry it is. Scrolling lifts the device out and dives into its LCD; from there every chapter (life, feeding, meals, jar, status) is a menu on the handheld's grey-green screen, wayfound by the screen's own sticky icon strip. The box then turns to its printed back for the story, and MUNCH opens its mouth and eats the screen.\n\nThree materials carry everything: **printed tangerine cardboard** with plum ink outlines, **the LCD** (two inks plus a ghost-pixel matrix, no colour, no radius), and **candy plastic** for the keys (bubblegum for buy, sun-yellow for secondary keys). Plum ink is the world's outline and its night: it frames the pack, draws every sprite edge, and is the dark the pack hangs against. Density is toy-box generous on the card and instrument-dense on the LCD.\n\nMotion is stepped, like an LCD refreshing: `steps()` easing for sprites, reveals and key presses; smooth easing only for physical camera moves (the pack zoom, the box flip). Everything degrades to a still, legible page under reduced motion.\n\nThe world explicitly refuses the dark crypto hero (giant counter, CA box, stat-card grid) and the neon retro-arcade costume; pixels here are a cheap handheld's, not an arcade cabinet's.",
     "keyCharacteristics": [
-      "Blue-black night field with pale, orange-ruled strip-chart paper as the only light surface.",
-      "Four voices: condensed uppercase display, plain grotesk text, tabular mono readings, red marker hand.",
-      "Amber ring light means live or actionable; red marker means the observer's annotation; teal means observatory fuel.",
-      "Paper slips sit slightly rotated, with sprocket holes and a deep drop shadow.",
-      "Scroll-driven instrument motion (pinned orbit, recorder trace, ballistic needle), always gated by prefers-reduced-motion."
+      "One continuous object: pack, then screen, then box back, then the mouth. Never a stack of generic sections.",
+      "Plum ink outlines (3-4px) on every printed thing; no hairlines, no grey borders.",
+      "The LCD is a separate material with its own two inks, square corners and DotGothic16 voice.",
+      "All sprites are original pixel grids drawn as crisp SVG rects; one grid, two palettes (printed colour and LCD).",
+      "Stepped motion everywhere except physical camera moves."
     ],
     "rules": [
       {
-        "name": "The Photon Ring Rule",
-        "body": "Amber is the hole's light: live readings, the primary action, and interactive response. It is never body copy, never a static fill on paper, never decoration.",
+        "name": "The Gum Is Live Rule",
+        "body": "Bubblegum marks the one live, actionable key: buy. It is never a background, a heading colour or decoration.",
         "section": "colors"
       },
       {
-        "name": "The Three Inks Rule",
-        "body": "Each signal ink has one meaning: amber is live, red is the observer's hand, teal is fuel. A burn reads amber on night and marker red on paper (amber does not hold on cream); fuel reads fuel on night and fuel-ink on paper.",
+        "name": "The Screen Has Two Inks Rule",
+        "body": "On the LCD only lcd, lcd-ink, lcd-mid and lcd-ghost exist. Sprites switch to the LCD palette (or its inverse for a selected item); no printed colour ever appears on the screen.",
         "section": "colors"
       },
       {
-        "name": "The Ruling Is Not Ink Rule",
-        "body": "Recorder orange exists only as the paper's grid. It is the measuring surface, not an accent.",
+        "name": "The Jar Is Blue Rule",
+        "body": "Sky blue means the snack jar. Anything that is not the jar does not borrow it.",
         "section": "colors"
       },
       {
-        "name": "The Four Voices Rule",
-        "body": "Every string belongs to exactly one voice: display for names and headings, grotesk for explanation, mono for readings, hand for the observer. Never set a reading in the grotesk or an explanation in the hand.",
+        "name": "The Screen Speaks Pixel Rule",
+        "body": "Anything the handheld would display (headings, readouts, menu labels, MUNCH's speech) is DotGothic16. Gabarito appears on the LCD only as explanatory body copy.",
         "section": "typography"
       },
       {
-        "name": "The Tabular Readings Rule",
-        "body": "Every live number uses tabular lining numerals so digits hold still while they change.",
+        "name": "The Embossed Logo Rule",
+        "body": "The stroked, extruded logo treatment is reserved for the MUNCH wordmark. Other Bagel headings are flat plum print.",
         "section": "typography"
       },
       {
-        "name": "The Empty Sky Rule",
-        "body": "Dense data lives on paper; the night around it stays empty. Do not fill the sky between slips with stat tiles or decoration.",
-        "section": "layout"
-      },
-      {
-        "name": "The Paper Floats Rule",
-        "body": "Only paper casts a shadow. Night surfaces never do; they are divided by a 1px to 1.5px panel-line hairline.",
-        "section": "elevation"
-      },
-      {
-        "name": "The Light Is Emitted Rule",
-        "body": "Amber never casts a dark shadow; it glows.",
+        "name": "The Skirt Means Press Rule",
+        "body": "A solid offset under an element means it is a key you can press, and it must collapse on `:active`. Static cards, panels and text never get an offset skirt.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do put every dense reading on chart paper (paper, pen text, 42%/16% orange ruling at 40px/8px) and leave the night around it empty.",
-      "Do reserve Photon Ring Amber (#ffad42) for live state, the primary action and interactive response.",
-      "Do write the observer's annotations in the marker hand (Reenie Beanie, 1.5rem to 2rem, marker red), with drawn arrows where they point at something.",
-      "Do show the keep orbit openly in fuel teal (fuel on night, fuel-ink on paper).",
-      "Do set every live number in tabular lining numerals, in mono for readings and in the display face for headline totals.",
-      "Do gate every animation behind prefers-reduced-motion and give it a still, complete fallback.",
-      "Do use pill controls (999px) and nearly square paper (4px to 10px)."
+      "Do outline every printed object in plum ink at 3-4px (`0 0 0 3px #2a1633`).",
+      "Do switch sprites to the LCD palette whenever they appear on the screen.",
+      "Do set anything the handheld displays in DotGothic16, and every hex address in JetBrains Mono.",
+      "Do use `steps()` easing for sprite, reveal and press motion; keep smooth easing for the pack zoom and box flip only.",
+      "Do keep square corners on the LCD and round, soft corners on cardboard and plastic.",
+      "Do give every pressable key a skirt that collapses on `:active`."
     ],
     "donts": [
-      "Don't build the dark crypto hero: a big counter, a CA box and a row of stat cards.",
-      "Don't use generic space-neon: stock nebulae, purple-cyan gradients, glowing grids on black.",
-      "Don't use recorder orange as an accent or text; it is only the paper's ruling.",
-      "Don't put amber text or fills on paper; a burn on paper reads in marker red.",
-      "Don't give night surfaces drop shadows; only paper floats.",
-      "Don't use the legacy alias tokens or helpers (soot, ember, plaque, btn-coal, sign-lettering and the rest) on public surfaces; they exist only for /memex."
+      "Don't use bubblegum for anything but the buy action, selection and the caret.",
+      "Don't put printed colour (tangerine, bubblegum, sun, jar, purple) on the LCD.",
+      "Don't build a dark crypto hero: no giant counter, standalone CA box or stat-card grid.",
+      "Don't reach for neon arcade styling (glows, scanlines, CRT curvature, gradients on pixels).",
+      "Don't add a skirt or offset shadow to static cards, panels or text.",
+      "Don't use the legacy alias tokens or helpers (night, panel, star, paper, pen, ring, fuel, soot, ember, plaque, btn-coal and the rest) on public surfaces; they exist for the log drawer and /memex."
     ]
   }
 }

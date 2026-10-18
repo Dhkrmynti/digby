@@ -2,91 +2,120 @@
 @import "./fonts.css";
 
 /*
-  LAVA PIT: the bottom of a pixel mine. Cave stone, a grass line far above, a lava pit
-  that really burns, and Brr, a penguin miner, working the ledge. Square corners, stepped motion.
+  MUNCH: a virtual pet in a cracked tangerine handheld. The page is the toy: printed cardboard,
+  clear blister plastic, a grey-green LCD with ink pixels, bubblegum buttons. Stepped motion.
 */
 @theme {
-  /* the cave */
-  --color-night: #15110e;
-  --color-night-2: #1d1714;
-  --color-panel: #2a221d;
-  --color-panel-line: #3e332b;
-  --color-star: #f4ecdc;
-  --color-star-dim: #b5a896;
-  /* signs and paper (full log drawer) */
-  --color-paper: #efe6d4;
-  --color-paper-shade: #ddd1ba;
-  --color-grid: #c47f1c;
-  --color-pen: #2a1d14;
-  --color-pen-soft: #6b5a48;
-  --color-marker: #d9420f;
-  --color-marker-deep: #8f2108;
-  /* lava: live and actionable only */
-  --color-ring: #ff8a1f;
-  --color-ring-hot: #ffe066;
-  /* the chest: the keep runs, ETH ore blue */
-  --color-fuel: #7fdcf0;
-  --color-fuel-ink: #1f6f86;
-  /* the surface */
-  --color-grass: #5fa83b;
-  --color-dirt: #6b4a2f;
+  /* plum ink: outlines, print, the dark behind the pack */
+  --color-ink: #2a1633;
+  --color-ink-2: #3a2245;
+  --color-ink-soft: #5c3a63;
+  --color-cream: #fff3e2;
+  --color-cream-hi: #fff9f1;
+  /* tangerine plastic and the card it is printed on */
+  --color-shell: #ff7a2f;
+  --color-shell-hi: #ffa565;
+  --color-shell-lo: #e0571a;
+  /* the LCD */
+  --color-lcd: #c4cfa1;
+  --color-lcd-ink: #2f3a22;
+  --color-lcd-soft: #45502f;
+  --color-lcd-mid: #8a9666;
+  --color-lcd-ghost: #b4c091;
+  /* the backlit screen (Status): the same inks swapped, lit pixels on dark glass */
+  --color-glass: #2f3a22;
+  --color-glass-lit: #c4cfa1;
+  --color-glass-soft: #a3ae80;
+  --color-glass-mid: #5f6c43;
+  --color-glass-ghost: #35412a;
+  /* the plum plastic around the screen */
+  --color-bezel: #3d2147;
+  --color-bezel-hi: #5a3466;
+  /* inside MUNCH's mouth */
+  --color-mouth: #4a1240;
+  /* bubblegum: the buy button, live and actionable only */
+  --color-bubble: #ff3d7f;
+  --color-bubble-lo: #c41f5c;
+  --color-bubble-hi: #ff5c93;
+  --color-sun: #ffd166;
+  /* the snack jar */
+  --color-jar: #5ec8f2;
+  --color-jar-ink: #12607f;
 
-  /* legacy names used by the operator panel, remapped into this world */
-  --color-soot: #15110e;
-  --color-char: #1d1714;
-  --color-wood: #2a221d;
-  --color-bark: #3e332b;
-  --color-ember: #ff8a1f;
-  --color-flame: #ff8a1f;
-  --color-hot: #efe6d4;
-  --color-ash: #b5a896;
-  --color-ash-light: #f4ecdc;
-  --color-plaque: #efe6d4;
-  --color-plaque-ink: #2a1d14;
-  --color-cold: #7fdcf0;
+  /* shared names used by the log drawer and the operator panel, remapped into this world */
+  --color-night: #2a1633;
+  --color-night-2: #3a2245;
+  --color-panel: #3a2245;
+  --color-panel-line: #5c3a63;
+  --color-star: #fff3e2;
+  --color-star-dim: #d9c3d6;
+  --color-paper: #fff3e2;
+  --color-paper-shade: #f3dfc6;
+  --color-grid: #ff7a2f;
+  --color-pen: #2a1633;
+  --color-pen-soft: #5c3a63;
+  --color-marker: #c41f5c;
+  --color-marker-deep: #8e1440;
+  --color-ring: #ff3d7f;
+  --color-ring-hot: #ffd166;
+  --color-fuel: #5ec8f2;
+  --color-fuel-ink: #12607f;
+  --color-soot: #2a1633;
+  --color-char: #3a2245;
+  --color-wood: #3a2245;
+  --color-bark: #5c3a63;
+  --color-ember: #ff3d7f;
+  --color-flame: #ff3d7f;
+  --color-hot: #fff3e2;
+  --color-ash: #d9c3d6;
+  --color-ash-light: #fff3e2;
+  --color-plaque: #fff3e2;
+  --color-plaque-ink: #2a1633;
+  --color-cold: #5ec8f2;
 
-  --font-display: "Pixelify Sans", "Courier New", monospace;
-  --font-body: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-logo: "Bagel Fat One", "Arial Rounded MT Bold", sans-serif;
+  --font-lcd: "DotGothic16", "Courier New", monospace;
+  --font-body: "Gabarito Variable", "Gabarito", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-pixel: "Silkscreen", "Courier New", monospace;
-  --font-hand: "Silkscreen", monospace;
-  --font-sign: "Pixelify Sans", monospace;
+  --font-display: "Bagel Fat One", sans-serif;
+  --font-pixel: "DotGothic16", monospace;
+  --font-hand: "DotGothic16", monospace;
+  --font-sign: "Bagel Fat One", sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  /* escrow fill 0..1, written by the page; warms the lava glow */
-  --hearth: 0;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @layer base {
   html {
-    background-color: var(--color-night);
-    color: var(--color-star);
-    scrollbar-color: var(--color-panel-line) var(--color-night);
+    background-color: var(--color-ink);
+    color: var(--color-ink);
+    scrollbar-color: var(--color-shell) var(--color-ink);
     overflow-anchor: none;
   }
 
   body {
     margin: 0;
     font-family: var(--font-body);
-    background-color: var(--color-night);
-    color: var(--color-star);
+    background-color: var(--color-ink);
+    color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
-    caret-color: var(--color-ring);
+    caret-color: var(--color-bubble);
   }
 
   ::selection {
-    background: var(--color-ring);
-    color: var(--color-night);
+    background: var(--color-bubble);
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-ring-hot);
+    outline: 3px solid var(--color-ink);
     outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--color-sun);
   }
 
   a {
@@ -99,217 +128,437 @@
   height: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-night);
+  background: var(--color-ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-panel-line);
-  border: 3px solid var(--color-night);
+  background: var(--color-shell);
+  border: 3px solid var(--color-ink);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ring);
+  background: var(--color-bubble);
 }
 
 .tabular {
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Everything below is a component layer, so Tailwind utilities on an element still win. */
+/* Component layer, so Tailwind utilities on an element still win. */
 @layer components {
 /* ───────── Voices ───────── */
+/* the logo: fat letters with a stepped plum extrusion, as printed on the pack */
+.logo {
+  font-family: var(--font-logo);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+  -webkit-text-stroke: 0.035em var(--color-ink);
+  paint-order: stroke fill;
+  text-shadow:
+    0.03em 0.03em 0 var(--color-ink),
+    0.06em 0.06em 0 var(--color-ink),
+    0.09em 0.09em 0 var(--color-ink);
+}
+.logo-sm {
+  font-family: var(--font-logo);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
 .display {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: 0;
+  font-family: var(--font-logo);
+  font-weight: 400;
+  line-height: 1;
 }
 .pxl,
 .label {
-  font-family: var(--font-pixel);
-  font-weight: 400;
+  font-family: var(--font-lcd);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.hand {
-  font-family: var(--font-pixel);
-  line-height: 1.1;
-}
-/* pixel letters cast a hard one-step shadow, like a game title */
-.px-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 0.9;
-  text-shadow: 0.06em 0.06em 0 #0b0806;
 }
 
-/* ───────── The world ───────── */
-.sky {
-  background:
-    radial-gradient(70% 40% at 50% 100%, color-mix(in oklab, var(--color-ring) calc(6% + var(--hearth) * 10%), transparent) 0%, transparent 70%),
-    var(--color-night);
-}
-/* cave stone, one 32px tile of blocks */
-.px-stone {
-  background-color: #1d1714;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' shape-rendering='crispEdges'%3E%3Crect width='32' height='32' fill='%231d1714'/%3E%3Crect x='0' y='0' width='15' height='15' fill='%23211a16'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%23211a16'/%3E%3Crect x='4' y='4' width='4' height='2' fill='%23282019'/%3E%3Crect x='22' y='6' width='6' height='2' fill='%23181310'/%3E%3Crect x='8' y='22' width='6' height='2' fill='%23181310'/%3E%3Crect x='24' y='24' width='4' height='2' fill='%23282019'/%3E%3Crect x='0' y='15' width='32' height='1' fill='%23120e0c'/%3E%3Crect x='15' y='0' width='1' height='15' fill='%23120e0c'/%3E%3Crect x='0' y='31' width='32' height='1' fill='%23120e0c'/%3E%3Crect x='7' y='16' width='1' height='15' fill='%23120e0c'/%3E%3C/svg%3E");
-  background-size: 64px 64px;
-  image-rendering: pixelated;
-}
-.px-dirt {
-  background-color: var(--color-dirt);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%236b4a2f'/%3E%3Crect x='2' y='3' width='2' height='2' fill='%23573a23'/%3E%3Crect x='10' y='1' width='2' height='2' fill='%237d5838'/%3E%3Crect x='6' y='9' width='2' height='2' fill='%23573a23'/%3E%3Crect x='12' y='11' width='2' height='2' fill='%237d5838'/%3E%3Crect x='1' y='13' width='2' height='2' fill='%237d5838'/%3E%3C/svg%3E");
+/* ───────── Materials ───────── */
+/* printed cardboard: tangerine stock with a faint print of pellets */
+.cardboard {
+  background-color: var(--color-shell);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' shape-rendering='crispEdges'%3E%3Cg fill='%23f26a20'%3E%3Crect x='6' y='8' width='4' height='2'/%3E%3Crect x='5' y='10' width='6' height='3'/%3E%3Crect x='6' y='13' width='4' height='1'/%3E%3Crect x='30' y='32' width='4' height='2'/%3E%3Crect x='29' y='34' width='6' height='3'/%3E%3Crect x='30' y='37' width='4' height='1'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 48px 48px;
-  image-rendering: pixelated;
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 4px var(--color-ink), inset 0 6px 0 4px rgba(255, 255, 255, 0.18);
 }
-.px-grass {
+
+/* the clear blister bubble over the handheld */
+.blister {
+  border-radius: 46% 46% 38% 38% / 36% 36% 30% 30%;
   background:
-    linear-gradient(#78c24a 0 4px, var(--color-grass) 4px 12px, transparent 12px),
-    repeating-linear-gradient(90deg, var(--color-grass) 0 12px, transparent 12px 18px, var(--color-grass) 18px 24px, transparent 24px 36px) 0 12px / 100% 6px no-repeat;
-}
-
-/* ───────── Panels: square, bevelled, with a hard outline ───────── */
-.px-panel {
-  position: relative;
-  background: var(--color-panel);
-  color: var(--color-star);
+    linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, 0.42) 19%, rgba(255, 255, 255, 0.42) 23%, transparent 24%, transparent 31%, rgba(255, 255, 255, 0.22) 32%, rgba(255, 255, 255, 0.22) 33.5%, transparent 34.5%),
+    rgba(255, 246, 236, 0.16);
   box-shadow:
-    0 0 0 4px #0b0806,
-    inset 4px 4px 0 rgba(255, 255, 255, 0.07),
-    inset -4px -4px 0 rgba(0, 0, 0, 0.32),
-    8px 8px 0 4px rgba(0, 0, 0, 0.45);
-}
-.px-frame {
-  position: relative;
-  background: #0b0806;
-  padding: 6px;
-  box-shadow: 0 0 0 4px #3e332b, 10px 10px 0 4px rgba(0, 0, 0, 0.45);
-  image-rendering: pixelated;
+    inset 0 0 0 3px rgba(255, 255, 255, 0.6),
+    inset 0 -14px 24px rgba(255, 255, 255, 0.16),
+    0 18px 30px -18px color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
-/* paper: the full-log drawer and lore signs */
-.paper {
-  position: relative;
-  background-color: var(--color-paper);
-  color: var(--color-pen);
-  box-shadow: 0 0 0 4px #0b0806, inset -4px -4px 0 rgba(0, 0, 0, 0.12), 8px 8px 0 4px rgba(0, 0, 0, 0.45);
+/* the LCD: grey-green, recessed, with the faint matrix of unlit pixels */
+.lcd {
+  background-color: var(--color-lcd);
+  background-image:
+    linear-gradient(var(--color-lcd-ghost) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-lcd-ghost) 1px, transparent 1px);
+  background-size: 4px 4px;
+  color: var(--color-lcd-ink);
 }
-.sprockets {
+[data-lcd].lcd {
+  box-shadow: inset 3px 3px 0 color-mix(in srgb, var(--color-lcd-ink) 28%, transparent);
+  background-size: 3px 3px;
+}
+/* the chapter inside the screen: the bezel stays at the edges so you never leave the device */
+.lcd-chapter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  box-shadow:
+    inset 12px 0 0 var(--color-bezel),
+    inset -12px 0 0 var(--color-bezel),
+    inset 18px 0 0 color-mix(in srgb, var(--color-lcd-ink) 22%, transparent),
+    inset -18px 0 0 color-mix(in srgb, var(--color-lcd-ink) 22%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* tucked under the pack, so the dive lands straight on it */
+  .lcd-chapter {
+    margin-top: -100svh;
+  }
+}
+/* the backlight on: the same screen inverted, lit pixels on dark glass. Every LCD utility follows the swap */
+.lcd-night {
+  --color-lcd: var(--color-glass);
+  --color-lcd-ink: var(--color-glass-lit);
+  --color-lcd-soft: var(--color-glass-soft);
+  --color-lcd-mid: var(--color-glass-mid);
+  --color-lcd-ghost: var(--color-glass-ghost);
+}
+/* where the light comes on: a dithered edge in three densities, not a gradient */
+.lcd-dither::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: 24px;
+  pointer-events: none;
+  background-color: var(--color-glass);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h8v4H0zM0 4h4v4H0z'/%3E%3C/svg%3E") 0 16px / 8px 8px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h4v4H0zM4 4h4v4H4z'/%3E%3C/svg%3E") 0 8px / 8px 8px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h4v4H0z'/%3E%3C/svg%3E") 0 0 / 8px 8px repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h8v4H0zM0 4h4v4H0z'/%3E%3C/svg%3E") 0 16px / 8px 8px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h4v4H0zM4 4h4v4H4z'/%3E%3C/svg%3E") 0 8px / 8px 8px repeat-x,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h4v4H0z'/%3E%3C/svg%3E") 0 0 / 8px 8px repeat-x;
+}
+/* changing menus: one dark scan band sweeps the screen */
+.lcd-refresh {
+  opacity: 0;
+  background: linear-gradient(transparent 40%, color-mix(in srgb, var(--color-lcd-ink) 16%, transparent) 46%, color-mix(in srgb, var(--color-lcd-ink) 16%, transparent) 54%, transparent 60%);
 }
 
-/* ───────── Buttons: pixel keys that press down ───────── */
-.btn-ring,
-.btn-ghost,
-.btn-pen,
-.btn-coal {
+/* a framed screen region on the LCD */
+.lcd-window {
+  background-color: var(--color-lcd);
+  box-shadow: 0 0 0 4px var(--color-lcd-ink);
+}
+
+/* the round price sticker on the plastic */
+.sticker {
+  display: flex;
+  height: 6.2rem;
+  width: 6.2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-sun);
+  color: var(--color-ink);
+  text-align: center;
+  font-weight: 800;
+  box-shadow: 0 0 0 4px var(--color-ink), 0 10px 18px -8px color-mix(in srgb, var(--color-ink) 60%, transparent);
+}
+
+/* MUNCH's speech, printed in a bubble on the card */
+.speech {
+  position: relative;
+  border-radius: 14px;
+  background: var(--color-cream);
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-lcd);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  box-shadow: 0 0 0 3px var(--color-ink);
+}
+.speech::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  height: 10px;
+  width: 10px;
+  translate: 0 -50%;
+  background: var(--color-ink);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+/* ───────── Controls ───────── */
+/* the buy button: a bubblegum key that presses into the card */
+.btn-buy {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  font-family: var(--font-pixel);
+  border-radius: 9999px;
+  background: var(--color-bubble);
+  font-family: var(--font-logo);
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-radius: 0;
-  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), background-color 0.12s steps(2), color 0.12s steps(2);
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+  box-shadow: 0 0 0 4px var(--color-ink), inset 0 -6px 0 var(--color-bubble-lo), inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 7px 0 4px var(--color-ink);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), background-color 0.12s steps(2);
 }
-.btn-ring,
-.btn-coal {
-  background: var(--color-ring);
-  color: #1a1412;
-  box-shadow: 0 0 0 3px #0b0806, inset 0 -5px 0 #c2370f, inset 0 3px 0 rgba(255, 255, 255, 0.45), 0 6px 0 3px #0b0806;
+.btn-buy:hover {
+  background: var(--color-bubble-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px var(--color-ink), inset 0 -6px 0 var(--color-bubble-lo), inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 9px 0 4px var(--color-ink);
 }
-.btn-ring:hover,
-.btn-coal:hover {
-  background: var(--color-ring-hot);
+.btn-buy:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 4px var(--color-ink), inset 0 -3px 0 var(--color-bubble-lo), inset 0 4px 0 rgba(255, 255, 255, 0.4), 0 1px 0 4px var(--color-ink);
 }
-.btn-ring:active,
-.btn-coal:active {
-  transform: translateY(5px);
-  box-shadow: 0 0 0 3px #0b0806, inset 0 -2px 0 #c2370f, inset 0 3px 0 rgba(255, 255, 255, 0.45), 0 1px 0 3px #0b0806;
+
+/* a small printed key on the card */
+.btn-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  background: var(--color-cream);
+  padding: 0.6rem 1.05rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  box-shadow: 0 0 0 3px var(--color-ink), 0 4px 0 3px var(--color-ink);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), background-color 0.12s steps(2);
 }
-.btn-ghost {
-  background: #3a302a;
-  color: var(--color-star);
-  box-shadow: 0 0 0 3px #0b0806, inset 0 -4px 0 #231c17, inset 0 3px 0 rgba(255, 255, 255, 0.12), 0 5px 0 3px #0b0806;
+.btn-chip:hover {
+  background: var(--color-sun);
 }
-.btn-ghost:hover {
-  background: #4b3f37;
-  color: var(--color-ring-hot);
-}
-.btn-ghost:active {
+.btn-chip:active {
   transform: translateY(4px);
-  box-shadow: 0 0 0 3px #0b0806, inset 0 -2px 0 #231c17, 0 1px 0 3px #0b0806;
+  box-shadow: 0 0 0 3px var(--color-ink), 0 0 0 3px var(--color-ink);
+}
+/* the dark key: a plum button with a skirt, for the one action on a form */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-ink-2);
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-logo);
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  box-shadow: 0 0 0 3px var(--color-ink), 0 5px 0 3px var(--color-ink);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), background-color 0.12s steps(2);
+}
+.btn-ink:hover:not(:disabled) {
+  background: var(--color-ink-soft);
+}
+.btn-ink:active:not(:disabled) {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 3px var(--color-ink), 0 0 0 3px var(--color-ink);
+}
+.btn-chip-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 1rem 1.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-cream);
+  box-shadow: inset 0 0 0 3px var(--color-cream);
+  transition: background-color 0.12s steps(2), color 0.12s steps(2);
+}
+.btn-chip-dark:hover {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+/* the contract address, printed in a pill on the card */
+.ca-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background: var(--color-cream);
+  padding: 0.4rem 0.45rem 0.4rem 1.1rem;
+  box-shadow: 0 0 0 3px var(--color-ink);
+  transition: background-color 0.12s steps(2);
+}
+.ca-field:hover {
+  background: var(--color-cream-hi);
+}
+
+/* a key drawn on the LCD */
+.btn-lcd {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 3px solid var(--color-lcd-ink);
+  padding: 0.45rem 0.9rem;
+  font-family: var(--font-lcd);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--color-lcd-ink);
+}
+.btn-lcd:hover {
+  background: var(--color-lcd-ink);
+  color: var(--color-lcd);
+}
+
+/* the handheld's own buttons: invisible hit areas over the drawn buttons, labels printed below */
+.dev-btn {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.06s steps(2);
+}
+.dev-btn:active {
+  transform: translateY(2px);
+  background: color-mix(in srgb, var(--color-ink) 25%, transparent);
+}
+.dev-label {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  translate: -50% 0.2rem;
+  font-family: var(--font-logo);
+  font-size: clamp(0.6rem, 1.1vw, 0.85rem);
+  line-height: 1;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+/* the log drawer: paper and pen, remapped */
+.paper {
+  position: relative;
+  background-color: var(--color-paper);
+  color: var(--color-pen);
+}
+.btn-pen,
+.btn-ring,
+.btn-ghost,
+.btn-coal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: background-color 0.12s steps(2), color 0.12s steps(2);
 }
 .btn-pen {
   color: var(--color-pen);
-  background: var(--color-paper);
-  box-shadow: 0 0 0 3px var(--color-pen);
+  box-shadow: inset 0 0 0 2px var(--color-pen);
 }
 .btn-pen:hover {
   background: var(--color-pen);
   color: var(--color-paper);
 }
-
-/* ───────── Pixel motion (all of it stepped) ───────── */
-@media (prefers-reduced-motion: no-preference) {
-  .px-flame {
-    transform-box: view-box;
-    animation: px-flick 0.6s steps(3) infinite alternate;
-  }
-  .px-bubble {
-    animation: px-bubble 2.4s steps(8) infinite;
-  }
-  .px-lava-crust {
-    animation: px-crust 3.2s steps(8) infinite;
-  }
-  .px-hop {
-    animation: px-hop 0.5s steps(2) infinite alternate;
-  }
-  .px-bob {
-    animation: px-hop 1.4s steps(2) infinite alternate;
-  }
-  .px-sweat {
-    animation: px-sweat 1.6s steps(6) infinite;
-  }
-  .reink {
-    animation: reink 0.35s steps(4) both;
-  }
+.btn-ring,
+.btn-coal {
+  background: var(--color-bubble);
+  color: var(--color-ink);
+  box-shadow: 0 0 0 3px var(--color-ink);
 }
-@keyframes px-flick {
-  0% { transform: scaleY(0.75); }
-  50% { transform: scaleY(1.1); }
-  100% { transform: scaleY(0.9); }
+.btn-ghost {
+  color: var(--color-star);
+  box-shadow: inset 0 0 0 2px var(--color-panel-line);
 }
-@keyframes px-bubble {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  80% { transform: translateY(-6px); opacity: 1; }
-  100% { transform: translateY(-8px); opacity: 0; }
+.btn-ghost:hover {
+  box-shadow: inset 0 0 0 2px var(--color-bubble);
 }
-@keyframes px-crust {
-  from { transform: translateX(0); }
-  to { transform: translateX(8px); }
-}
-@keyframes px-hop {
-  from { transform: translateY(0); }
-  to { transform: translateY(-4px); }
-}
-@keyframes px-sweat {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translateY(8px); opacity: 0; }
-}
-@keyframes reink {
-  0% { opacity: 0; transform: translateY(0.2em); }
-  100% { opacity: 1; transform: none; }
-}
-
-/* ───────── Legacy operator-panel helpers (/memex) ───────── */
 .plaque {
   background: var(--color-paper);
   color: var(--color-pen);
 }
 .sign-lettering {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-logo);
+}
+
+/* ───────── Motion: all of it stepped, like an LCD ───────── */
+@media (prefers-reduced-motion: no-preference) {
+  .px-bob {
+    animation: px-bob 1.2s steps(2) infinite;
+  }
+  .px-hop {
+    animation: px-hop 0.3s steps(2) infinite alternate;
+  }
+  .px-wobble {
+    animation: px-wobble 2.4s steps(1) infinite;
+    transform-origin: 50% 100%;
+  }
+  .px-wobble-fast {
+    animation: px-wobble 0.5s steps(1) infinite;
+    transform-origin: 50% 100%;
+  }
+  .lcd-drop {
+    animation: lcd-drop 0.9s steps(6) both;
+  }
+  .reink {
+    animation: reink 0.35s steps(4) both;
+  }
+  .nom-blink {
+    animation: nom-blink 0.5s steps(1) infinite;
+  }
+  .lcd-refresh {
+    animation: lcd-refresh 0.32s steps(4) both;
+  }
+}
+@keyframes px-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6%); }
+}
+@keyframes px-hop {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12%); }
+}
+@keyframes px-wobble {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  76% { transform: rotate(-8deg); }
+  82% { transform: rotate(8deg); }
+  88% { transform: rotate(-5deg); }
+  94% { transform: rotate(4deg); }
+}
+@keyframes lcd-drop {
+  0% { transform: translate(-50%, -20%); opacity: 1; }
+  80% { transform: translate(-50%, 260%); opacity: 1; }
+  100% { transform: translate(-50%, 300%); opacity: 0; }
+}
+@keyframes nom-blink {
+  50% { opacity: 0; }
+}
+/* changing menus: the screen redraws top to bottom, like a cheap LCD */
+@keyframes lcd-refresh {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 1; }
+}
+@keyframes reink {
+  0% { opacity: 0; transform: translateY(0.2em); }
+  100% { opacity: 1; transform: none; }
 }
 }

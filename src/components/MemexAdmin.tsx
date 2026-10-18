@@ -16,7 +16,7 @@ import {
   RotateCcw,
   Trash2
 } from 'lucide-react';
-import { VoidMark } from './void/VoidMark';
+import { COLOR, FEEDER, MUNCHLET, PixelArt } from './munch/sprites';
 
 interface MemexAdminProps {
   onBack?: () => void;
@@ -290,71 +290,60 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
   };
 
   const inputClass =
-    'w-full bg-soot border border-bark focus:border-ember focus:ring-1 focus:ring-ember rounded-lg px-4 py-3 text-sm font-mono text-hot placeholder-ash outline-none transition-colors';
-  const labelClass =
-    'text-xs sm:text-sm font-display font-bold uppercase tracking-[0.12em] text-plaque flex items-center gap-2';
-  const validBadge = 'text-[11px] font-mono text-flame flex items-center gap-1 font-semibold';
-  const hintClass = 'text-[11px] text-ash-light';
-  const warnClass = 'text-[11px] text-ember font-mono';
+    'w-full rounded-xl bg-cream-hi px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-soft/70 shadow-[inset_0_0_0_3px_var(--color-ink)] outline-none transition-shadow focus:shadow-[inset_0_0_0_3px_var(--color-ink),0_0_0_4px_var(--color-sun)]';
+  const labelClass = 'flex items-center gap-2 font-logo text-[1.15rem] leading-none text-ink';
+  const validBadge = 'inline-flex items-center gap-1 bg-lcd-ink px-1.5 py-0.5 font-lcd text-[0.72rem] uppercase text-lcd';
+  const hintClass = 'm-0 text-[0.82rem] leading-snug text-ink-soft';
+  const warnClass = 'm-0 text-[0.82rem] font-semibold text-bubble-lo';
 
   return (
-    <div className="min-h-screen bg-soot text-[#f1e7d6] font-body flex flex-col">
+    <div className="flex min-h-screen flex-col bg-ink font-body text-cream">
       {/* Header */}
-      <header className="h-16 px-4 sm:px-8 md:px-12 flex items-center justify-between border-b border-wood bg-soot/85 sticky top-0 z-40 backdrop-blur-md">
+      <header className="sticky top-0 z-40 flex h-16 items-center justify-between bg-ink px-4 shadow-[0_10px_24px_-14px_rgba(0,0,0,0.8)] sm:px-8 md:px-12">
         <div className="flex items-center gap-3">
-          <button
-            onClick={navigateToDashboard}
-            className="flex items-center gap-2 text-ash-light hover:text-hot transition-colors cursor-pointer text-sm font-medium"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Back to the observatory</span>
+          <button onClick={navigateToDashboard} className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-cream transition-colors hover:text-sun">
+            <ArrowLeft className="h-4 w-4" />
+            <span className="hidden sm:inline">Back to MUNCH</span>
           </button>
-          <div className="h-4 w-[1px] bg-bark" />
-          <div className="flex items-center gap-2">
-            <VoidMark className="h-7 w-7" />
-            <span className="font-sign font-black uppercase text-hot text-2xl leading-none">
-              Void
-            </span>
-            <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-char text-flame border border-bark font-semibold">
-              Keeper
-            </span>
+          <div className="h-5 w-[2px] bg-ink-soft" />
+          <div className="flex items-center gap-2.5">
+            <PixelArt rows={MUNCHLET} pal={COLOR} className="h-8 w-9" />
+            <span className="font-logo text-[1.55rem] leading-none text-cream">MUNCH</span>
+            <span className="lcd px-2 py-0.5 font-lcd text-[0.72rem] uppercase">keeper</span>
           </div>
         </div>
       </header>
 
-      {/* Main Admin Form */}
-      <main className="flex-1 flex items-center justify-center p-4 sm:p-6 md:p-8">
-        <div className="max-w-xl w-full">
-          <div className="bg-char border border-wood rounded-2xl p-6 sm:p-8 relative overflow-hidden">
-            {/* Lantern glow */}
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-ember/15 rounded-full blur-3xl pointer-events-none" />
+      {/* The back of the toy: where the keeper sets up the auto-feeder */}
+      <main className="flex flex-1 items-center justify-center p-4 sm:p-6 md:p-8">
+        <div className="w-full max-w-xl">
+          <div className="cardboard relative rounded-[22px] px-4 pb-5 pt-9 sm:px-7 sm:pb-7">
+            {/* die-cut hang tab */}
+            <span className="absolute left-1/2 top-3 h-[14px] w-24 -translate-x-1/2 rounded-full bg-ink shadow-[inset_0_3px_0_rgba(0,0,0,0.4)]" aria-hidden="true" />
 
-            {/* Header Content */}
-            <div className="mb-6 relative z-10">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-soot border border-bark text-xs font-mono text-ash-light mb-3">
-                <span className="w-2 h-2 rounded-full bg-ember" />
-                The Watcher's console
+            <div className="mb-5 flex items-end justify-between gap-4">
+              <div>
+                <span className="lcd inline-block px-2 py-0.5 font-lcd text-[0.75rem] uppercase">keeper only</span>
+                <h1 className="m-0 mt-3 font-logo text-[clamp(2rem,6vw,2.7rem)] leading-[1] text-ink">Auto-feeder settings</h1>
+                <p className="m-0 mt-2 max-w-[44ch] text-[0.95rem] font-semibold leading-snug text-ink">
+                  The keeper&apos;s key runs the auto-feeder. Set it, and the token MUNCH eats. Every feeding runs from what you save here.
+                </p>
               </div>
-              <h1 className="font-display text-3xl sm:text-4xl font-black uppercase tracking-[0.04em] text-hot m-0">
-                Feed the Void
-              </h1>
-              <p className="text-xs sm:text-sm text-ash-light mt-1.5 leading-relaxed">
-                Set the Watcher's key and the token it feeds to the hole. Every orbit runs from what you save here.
-              </p>
+              <PixelArt rows={FEEDER} pal={COLOR} className="hidden h-20 w-20 shrink-0 sm:block" />
             </div>
 
-            <form onSubmit={handleSave} className="space-y-6 relative z-10">
+            <form onSubmit={handleSave} className="space-y-6 rounded-2xl bg-cream p-5 text-ink shadow-[0_0_0_3px_var(--color-ink)] sm:p-6">
               {/* Field 1: Private Key */}
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <label className={labelClass}>
-                    <Key className="w-4 h-4 text-ember" />
-                    Private Key
+                    <Key className="h-4 w-4" />
+                    Keeper key
                   </label>
                   {derivedWallet && (
                     <span className={validBadge}>
-                      <CheckCircle2 className="w-3 h-3" />
-                      Valid Key
+                      <CheckCircle2 className="h-3 w-3" />
+                      valid key
                     </span>
                   )}
                 </div>
@@ -364,7 +353,7 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                     type={showPrivateKey ? 'text' : 'password'}
                     value={privateKey}
                     onChange={(e) => setPrivateKey(e.target.value)}
-                    placeholder="Enter keeper private key (0x...)"
+                    placeholder="Keeper private key (0x…)"
                     className={`${inputClass} pr-11`}
                     autoComplete="off"
                     spellCheck="false"
@@ -372,165 +361,135 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                   <button
                     type="button"
                     onClick={() => setShowPrivateKey(!showPrivateKey)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-ash hover:text-hot transition-colors p-1"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 text-ink-soft transition-colors hover:text-ink"
                     title={showPrivateKey ? 'Hide' : 'Show'}
                   >
-                    {showPrivateKey ? (
-                      <EyeOff className="w-4 h-4" />
-                    ) : (
-                      <Eye className="w-4 h-4" />
-                    )}
+                    {showPrivateKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
 
                 {/* Derived Wallet Address Display */}
                 {derivedWallet ? (
-                  <div className="bg-soot border border-bark rounded-lg p-2.5 flex items-center gap-2">
-                    <Wallet className="w-4 h-4 text-flame shrink-0" />
-                    <div className="text-[11px] font-mono truncate">
-                      <span className="text-ash">Address: </span>
-                      <span className="text-flame font-semibold">{derivedWallet}</span>
+                  <div className="lcd flex items-center gap-2 rounded-lg px-3 py-2 shadow-[inset_0_0_0_3px_var(--color-lcd-ink)]">
+                    <Wallet className="h-4 w-4 shrink-0" />
+                    <div className="truncate font-mono text-[0.75rem]">
+                      <span className="font-lcd uppercase">keeper wallet </span>
+                      <span className="font-semibold">{derivedWallet}</span>
                     </div>
                   </div>
                 ) : privateKey.trim().length > 0 ? (
-                  <p className={warnClass}>
-                    Invalid private key format (must be 64 hex characters).
-                  </p>
+                  <p className={warnClass}>Invalid private key format (must be 64 hex characters).</p>
                 ) : botWallet ? (
                   <p className={hintClass}>
-                    The bot is running with wallet <span className="font-mono text-flame">{botWallet}</span>. Leave blank to keep it.
+                    The bot is running with wallet <span className="font-mono text-ink">{botWallet}</span>. Leave blank to keep it.
                   </p>
                 ) : (
-                  <p className={hintClass}>
-                    Sent straight to the bot on the server. It is never stored in this browser.
-                  </p>
+                  <p className={hintClass}>Sent straight to the bot on the server. It is never stored in this browser.</p>
                 )}
               </div>
 
               {/* Field 2: Token Address */}
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <label className={labelClass}>
-                    <Coins className="w-4 h-4 text-ember" />
-                    Token Address
+                    <Coins className="h-4 w-4" />
+                    Token address
                   </label>
                   <div className="flex items-center gap-2">
                     {tokenAddress.trim().length > 0 && (
                       <button
                         type="button"
                         onClick={handleResetTokenAddress}
-                        className="text-[11px] font-mono text-ash-light hover:text-ember hover:underline flex items-center gap-1 cursor-pointer transition-colors"
+                        className="flex cursor-pointer items-center gap-1 text-[0.78rem] font-semibold text-ink-soft transition-colors hover:text-bubble-lo hover:underline"
                         title="Clear Token Address"
                       >
-                        <Trash2 className="w-3 h-3" />
-                        Clear Address
+                        <Trash2 className="h-3 w-3" />
+                        clear
                       </button>
                     )}
                     {isTokenValid && (
                       <span className={validBadge}>
-                        <CheckCircle2 className="w-3 h-3" />
-                        Valid Address
+                        <CheckCircle2 className="h-3 w-3" />
+                        valid
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={tokenAddress}
-                    onChange={(e) => setTokenAddress(e.target.value)}
-                    placeholder="0x... (Token contract address)"
-                    className={inputClass}
-                    autoComplete="off"
-                    spellCheck="false"
-                  />
-                </div>
+                <input
+                  type="text"
+                  value={tokenAddress}
+                  onChange={(e) => setTokenAddress(e.target.value)}
+                  placeholder="0x… (token contract address)"
+                  className={inputClass}
+                  autoComplete="off"
+                  spellCheck="false"
+                />
 
                 {tokenAddress.trim().length > 0 && !isTokenValid ? (
-                  <p className={warnClass}>
-                    Must be a valid 42-character EVM address (starting with 0x).
-                  </p>
+                  <p className={warnClass}>Must be a valid 42-character EVM address (starting with 0x).</p>
                 ) : (
-                  <p className={hintClass}>
-                    The token the Watcher buys back and drops into 0x…dEaD.
-                  </p>
+                  <p className={hintClass}>The token the auto-feeder buys back and MUNCH eats at 0x…dEaD.</p>
                 )}
               </div>
 
               {/* Field 3: Treasury Address (Optional for KEEP Cycles) */}
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <label className={labelClass}>
-                    <Landmark className="w-4 h-4 text-ember" />
-                    Treasury / Keep Address
-                    <span className="text-[10px] text-ash font-body font-normal normal-case tracking-normal">(Optional)</span>
+                    <Landmark className="h-4 w-4" />
+                    Snack jar address
+                    <span className="font-body text-[0.75rem] font-semibold text-ink-soft">(optional)</span>
                   </label>
                   {treasuryAddress.trim() && isTreasuryValid && (
                     <span className={validBadge}>
-                      <CheckCircle2 className="w-3 h-3" />
-                      Valid Address
+                      <CheckCircle2 className="h-3 w-3" />
+                      valid
                     </span>
                   )}
                 </div>
 
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={treasuryAddress}
-                    onChange={(e) => setTreasuryAddress(e.target.value)}
-                    placeholder="0x... (Creator / Treasury fee recipient wallet)"
-                    className={inputClass}
-                    autoComplete="off"
-                    spellCheck="false"
-                  />
-                </div>
+                <input
+                  type="text"
+                  value={treasuryAddress}
+                  onChange={(e) => setTreasuryAddress(e.target.value)}
+                  placeholder="0x… (snack jar wallet)"
+                  className={inputClass}
+                  autoComplete="off"
+                  spellCheck="false"
+                />
 
                 {treasuryAddress.trim().length > 0 && !isTreasuryValid ? (
-                  <p className={warnClass}>
-                    Must be a valid 42-character EVM address (starting with 0x).
-                  </p>
+                  <p className={warnClass}>Must be a valid 42-character EVM address (starting with 0x).</p>
                 ) : (
-                  <p className={hintClass}>
-                    Recipient address for ETH during Even (Fee Claim) cycles. If left empty, fees remain securely in the operator wallet.
-                  </p>
+                  <p className={hintClass}>Where every other feeding goes (the snack jar). Leave it empty and the ETH stays in the keeper wallet.</p>
                 )}
               </div>
 
               {/* Status Message */}
               {statusMessage && (
                 <div
-                  className={`p-3 rounded-lg border text-xs font-mono flex items-start gap-2 ${
-                    saveStatus === 'success'
-                      ? 'bg-soot border-flame/40 text-flame'
-                      : 'bg-soot border-red-500/50 text-red-300'
+                  className={`flex items-start gap-2 rounded-lg p-3 text-[0.8rem] ${
+                    saveStatus === 'success' ? 'lcd font-lcd shadow-[inset_0_0_0_3px_var(--color-lcd-ink)]' : 'bg-cream-hi font-mono text-bubble-lo shadow-[inset_0_0_0_3px_var(--color-bubble-lo)]'
                   }`}
                 >
-                  {saveStatus === 'success' ? (
-                    <Check className="w-4 h-4 shrink-0 mt-0.5" />
-                  ) : (
-                    <ShieldAlert className="w-4 h-4 shrink-0 mt-0.5" />
-                  )}
+                  {saveStatus === 'success' ? <Check className="mt-0.5 h-4 w-4 shrink-0" /> : <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" />}
                   <span>{statusMessage}</span>
                 </div>
               )}
 
               {/* Action Buttons: Save Configuration & Reset All */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                <button
-                  type="submit"
-                  disabled={isSaving}
-                  className="w-full sm:flex-1 py-3.5 px-5 rounded-lg bg-ember hover:bg-flame text-soot font-display font-black uppercase tracking-[0.1em] text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
-                >
+              <div className="flex flex-col items-center gap-4 pt-2 sm:flex-row">
+                <button type="submit" disabled={isSaving} className="btn-ink w-full cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 sm:flex-1">
                   {isSaving ? (
                     <>
-                      <RefreshCw className="w-4 h-4 animate-spin" />
-                      Saving...
+                      <RefreshCw className="h-4 w-4 animate-spin" />
+                      Saving…
                     </>
                   ) : (
                     <>
-                      <Save className="w-4 h-4" />
-                      Save Configuration
+                      <Save className="h-4 w-4" />
+                      Save settings
                     </>
                   )}
                 </button>
@@ -539,11 +498,11 @@ export function MemexAdmin({ onBack }: MemexAdminProps) {
                   type="button"
                   onClick={handleResetAll}
                   disabled={isSaving}
-                  className="w-full sm:w-auto py-3.5 px-5 rounded-lg bg-transparent hover:bg-red-500/10 text-red-300 border border-red-500/40 hover:border-red-400 font-display font-bold uppercase tracking-[0.1em] text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                  className="btn-chip w-full cursor-pointer py-3 text-bubble-lo disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                   title="Reset all addresses and configuration back to blank defaults"
                 >
-                  <RotateCcw className="w-4 h-4" />
-                  <span>Reset All</span>
+                  <RotateCcw className="h-4 w-4" />
+                  <span>Reset all</span>
                 </button>
               </div>
             </form>

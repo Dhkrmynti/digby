@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import {
   X,
   ExternalLink,
@@ -39,6 +40,31 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState<"all" | "burn" | "buyback" | "claim">("all");
   const [copied, setCopied] = useState(false);
+  // stays mounted through the slide-out, then unmounts
+  const [mounted, setMounted] = useState(isOpen);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) setMounted(true);
+  }, [isOpen]);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+      const scrim = root.querySelector("[data-scrim]");
+      const panel = root.querySelector("aside");
+      const quick = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1;
+      if (isOpen) {
+        gsap.fromTo(scrim, { opacity: 0 }, { opacity: 1, duration: 0.25 * quick, overwrite: true });
+        gsap.fromTo(panel, { xPercent: 100 }, { xPercent: 0, duration: 0.45 * quick, ease: "expo.out", overwrite: true });
+      } else {
+        gsap.to(scrim, { opacity: 0, duration: 0.25 * quick, overwrite: true });
+        gsap.to(panel, { xPercent: 100, duration: 0.3 * quick, ease: "power2.in", overwrite: true, onComplete: () => setMounted(false) });
+      }
+    },
+    { dependencies: [isOpen, mounted] }
+  );
 
   const explorerUrl = "https://explorer.mainnet.chain.robinhood.com";
 
@@ -79,7 +105,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
               time: timeOnly,
               type: "burn",
               tag: "BURN",
-              message: `Permanently burned ${new Intl.NumberFormat("en-US").format(Math.round(burnedTokens || 250000))} $VOID past the event horizon (0x000...dEaD)`,
+              message: `Permanently burned ${new Intl.NumberFormat("en-US").format(Math.round(burnedTokens || 250000))} $MUNCH, eaten by MUNCH at 0x000...dEaD`,
               txHash: entry.burnTx || entry.claimTx || "",
             });
           }
@@ -194,48 +220,37 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
   };
 
   const TAG_LABELS: Record<NormalizedLogItem["type"], string> = {
-    burn: "fell in",
-    buyback: "feed",
-    claim: "pull",
+    burn: "eaten",
+    buyback: "snacks",
+    claim: "feeding",
     trigger: "trade",
-    system: "watch",
+    system: "feeder",
   };
 
   const FILTER_LABELS: Record<typeof selectedFilter, string> = {
     all: "all",
-    burn: "falls",
-    buyback: "feeds",
-    claim: "pulls",
+    burn: "meals",
+    buyback: "buys",
+    claim: "feedings",
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex justify-end">
-          <motion.div
-            className="absolute inset-0 bg-[#06080fd9]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            onClick={onClose}
-          />
+    <>
+      {mounted && (
+        <div ref={rootRef} className="fixed inset-0 z-50 flex justify-end">
+          <div data-scrim className="absolute inset-0 bg-ink/85 opacity-0" onClick={onClose} />
 
-          <motion.aside
+          <aside
             role="dialog"
             aria-modal="true"
             aria-labelledby="burn-log-title"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 flex h-full w-full max-w-[34rem] flex-col paper font-body text-pen"
           >
             {/* Header */}
                         <div className="flex items-start justify-between gap-4 px-5 pb-5 pt-6 sm:px-7">
               <div>
                 <h3 id="burn-log-title" className="m-0 display text-[2.8rem] text-pen">
-                  The Observing Log
+                  The meal log
                 </h3>
                 <p className="m-0 mt-2 text-[0.98rem] text-pen-soft">
                   Live from Robinhood Chain · {filteredLogs.length} {filteredLogs.length === 1 ? "entry" : "entries"}
@@ -280,7 +295,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="search tx"
                     aria-label="Search the log"
-                    className="w-full rounded-full border border-pen/30 bg-[#f8f4ea] py-1.5 pl-8 pr-3 font-mono text-[0.82rem] text-pen placeholder:text-pen-soft focus:border-pen focus:outline-none"
+                    className="w-full rounded-full border border-pen/30 bg-cream-hi py-1.5 pl-8 pr-3 font-mono text-[0.82rem] text-pen placeholder:text-pen-soft focus:border-pen focus:outline-none"
                   />
                 </div>
                 <button
@@ -303,7 +318,7 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
                 </li>
               ) : (
                 filteredLogs.map((item) => (
-                  <li key={item.id} className="border-b border-pen/15 px-5 py-3.5 transition-colors hover:bg-[#e6dfcb]/70 sm:px-7">
+                  <li key={item.id} className="border-b border-pen/15 px-5 py-3.5 transition-colors hover:bg-paper-shade/70 sm:px-7">
                     <div className="flex items-center justify-between gap-3">
                       <span className={`rounded-full px-2.5 py-0.5 display text-[0.85rem] ${getTagColor(item.type)}`}>
                         {TAG_LABELS[item.type]}
@@ -329,14 +344,14 @@ export const BurnLedgerDrawer: React.FC<BurnLedgerDrawerProps> = ({
 
             {/* Footer */}
             <div className="flex items-center justify-between gap-3 border-t border-pen/25 bg-paper/85 px-5 py-4 text-[0.85rem] text-pen-soft sm:px-7">
-              <span className="truncate font-mono">Event horizon · 0x000...dEaD</span>
+              <span className="truncate font-mono">MUNCH's mouth · 0x000...dEaD</span>
               <button type="button" onClick={onClose} className="btn-pen cursor-pointer bg-paper px-4 py-1.5 text-[0.95rem]">
                 close
               </button>
             </div>
-          </motion.aside>
+          </aside>
         </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };

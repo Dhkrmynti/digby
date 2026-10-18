@@ -2,16 +2,17 @@
 
 <!-- impeccable:product-schema 1 -->
 
-## Rebrand in progress (2026-10-14): Lava Pit ($LAVA)
+## Current brand (2026-10-17): MUNCH ($MUNCH)
 
-The public site was redrawn as **Lava Pit ($LAVA)**, a 2D pixel mine cut open from the side (block-game feel, but no Minecraft names, characters, logos or textures). Engine, API, tokenomics and `/memex` are unchanged.
+The public site was redrawn as **MUNCH ($MUNCH)**, a pixel virtual pet (Tamagotchi-style, original art, no Bandai names, logos or shells). Engine, API, tokenomics and `/memex` are unchanged.
 
-- Mascot: **Brr**, a penguin miner (yellow hard hat, head lamp, always sweating) who slid off his iceberg into the lava mine; he is the bot. (Replaced Cobble the cobblestone on 2026-10-14 at the user's request.)
-- The lava pit (real pixel fire) is 0x…dEaD. Odd runs (0.01 ETH): buy $LAVA, drop it in the lava. Even runs (0.02 ETH): fees go in **the chest** (project wallet).
-- Fee escrow = the segmented bar ("ETH ore"). Burn log = "the lava log".
-- Fonts: Pixelify Sans (display), Silkscreen (labels, caps only: never use it for addresses), Space Grotesk (body), JetBrains Mono (addresses, numbers).
-- Not live yet: no domain, no X, no CA. $LAVA needs a new Pons launch; the on-chain name/ticker of the current token cannot change.
-- The Black Void sections below are the previous brand.
+- Lore: someone threw a cheap virtual-pet handheld into 0x…dEaD, the address nothing comes back from. The egg hatched anyway. The only food down there is tokens, and MUNCH only eats $MUNCH.
+- Mascot: **MUNCH**, a round purple pet with a huge mouth. It evolves with the real share of supply burned: **egg** (<0.1%), **munchlet** (0.1–1%), **chomper** (1–5%), **MUNCH** (5%+). Thresholds are lore, tunable in `src/components/munch/stages.ts`.
+- Terms: fee escrow → **the food bowl / hunger meter**; claim → **feeding time**; the bot → **the auto-feeder**; buyback → **buying snacks**; burn → **MUNCH eats it** (at 0x…dEaD, "its mouth"); odd runs → **meals**; even runs → **the snack jar** (project wallet, shown openly); burn log → **the meal log**; holders → **keepers**.
+- Voice: cute on top, deadpan underneath ("nom.", "no refunds.", "tastes like supply.").
+- Fonts: Bagel Fat One (logo/headings on plastic), DotGothic16 (anything on the LCD), Gabarito (body), JetBrains Mono (addresses).
+- Not live yet: no domain, no X, no CA. $MUNCH needs a new Pons launch; the on-chain name/ticker of the current token cannot change.
+- Previous brands (Lava Pit/Brr, Black Void, Mort's Ghost Train, Sherwood) are retired; the Black Void sections below are historical.
 
 ## Platform
 

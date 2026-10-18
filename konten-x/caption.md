@@ -1,35 +1,41 @@
-# Lava Pit ($LAVA) · X kit
+# MUNCH ($MUNCH) · X kit
 
 | File | Pakai untuk |
 |---|---|
-| 01-logo-x.png (1000×1000), 01-logo-x-400.png | Foto profil X (muka Brr, aman buat crop bulat) |
+| 01-logo-x.png (1000×1000), 01-logo-x-400.png | Foto profil X (munchlet, aman buat crop bulat) |
 | 02-banner-x.png (1500×500) | Header X (pojok kiri bawah dikosongin buat avatar) |
-| 03-gif-brr-throws-it-in.gif (600×600, loop 4 dtk) | Postingan / reply |
-| 04-video-demo.mp4 (1920×1080, 30 dtk) | Postingan pinned / demo cara kerja |
+| 03-link-preview.png (1200×630) | Gambar preview link; versi yang sama ada di `public/og-image.png` |
 
-Sumber: `konten-x/studio/src/lava/` (Remotion, folder "Lava"). Konten X lama dipindah ke `../arsip-konten/graveburn-x/`.
+Semua gambar dirender dari sprite, warna dan font situs yang sama (`src/components/munch/sprites.tsx`), jadi tetap sama persis dengan web. Kit Lava Pit yang lama dipindah ke `../arsip-konten/lavapit-x/`.
+
+Catatan: X butuh URL absolut untuk `og:image`. Setelah domain ada, ganti `/og-image.png` di `index.html` jadi `https://<domain>/og-image.png`.
 
 ## Bio X
-Brr took a wrong turn off an iceberg. Now he works the lava pit. Every $LAVA trade drops ETH ore; Brr buys $LAVA back and throws it in. 🔥 lavapit.fun
+A virtual pet that eats its own supply. Every $MUNCH trade fills its bowl; the auto-feeder buys $MUNCH back and MUNCH eats it at 0x…dEaD. It grows as the supply burns.
 
-## Post: video demo (pinned)
-Meet Brr. ⛏️🐧
+## Post: perkenalan (pinned)
+Someone threw a cheap virtual pet into 0x…dEaD.
 
-Every $LAVA trade drops ETH ore into the fee bar.
-Bar hits 0.01 ETH → Brr claims it, buys $LAVA back, throws it in the lava (0x…dEaD).
-Every other run: 0.02 ETH to the chest.
+The screen cracked. The egg didn't.
 
-Then again. 24/7. Every drop on chain.
+Down there the only food is tokens, and it only eats one kind: $MUNCH.
 
-lavapit.fun
+Every trade fills its bowl → the auto-feeder buys $MUNCH → MUNCH eats it. Gone for good.
+Every other feeding goes in the snack jar.
 
-## Post: GIF
-Brr's whole job, in 4 seconds.
+It grows as the supply burns: egg → munchlet → chomper → MUNCH.
 
-buy it back → drop it in → 🔥
+## Post: telurnya retak
+…tk.
 
-$LAVA · lavapit.fun
+The egg cracks in three steps before it hatches. Every crack is real supply eaten, read straight from 0x…dEaD.
 
-## Catatan
-- Angka di video cuma threshold engine yang asli (0.01 burn / 0.02 chest), gak ada total burn karangan.
-- Setelah launch, pasang CA di bio / reply pertama.
+Crack 1 at 0.025%. Crack 2 at 0.05%. Crack 3 at 0.075%. Hatches at 0.1%.
+
+## Post: setelah meal pertama
+nom.
+
+First meal on chain. MUNCH ate [JUMLAH] $MUNCH.
+tx: [LINK TX]
+
+It's still hungry.

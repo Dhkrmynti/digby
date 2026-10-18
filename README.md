@@ -1,4 +1,6 @@
-# BLAZE — Autonomous Buyback & Burn Engine (Pons Family v2)
+# MUNCH ($MUNCH) — Autonomous Buyback & Burn Engine (Pons Family v2)
+
+The public site is MUNCH, a pixel virtual pet that only eats $MUNCH: every trade fills its bowl (the fee escrow), the auto-feeder (the bot) buys $MUNCH back and MUNCH eats it at `0x…dEaD`. It evolves with the real share of supply burned. See `PRODUCT.md` for the lore.
 
 An autonomous token liquidity, buyback, and burn engine deployed on **Robinhood Chain (Chain ID: 4663)** integrated with **Pons Family v2**.
 
@@ -6,7 +8,7 @@ An autonomous token liquidity, buyback, and burn engine deployed on **Robinhood 
 
 ## Overview
 
-BLAZE operates on a perpetual closed-loop mechanism:
+The engine operates on a perpetual closed-loop mechanism:
 1. **Trade & Tax Inflow**: Trading activity generates creator fees in native ETH accumulating in the Fee Escrow (`0xd3AFEB...Ac9e`).
 2. **Auto-Claim Fee**: When claimable fees reach the configured threshold (e.g. `0.015 ETH`), the engine executes `escrow.claim()`.
 3. **Auto-Buyback DEX**: Claimed ETH is immediately swapped for tokens on the DEX (Uniswap v4 / Curve).
