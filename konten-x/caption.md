@@ -29,10 +29,18 @@ Situs: https://digbyyard.fun. `og:image` di `index.html` udah pakai URL absolut 
 
 ---
 
-## Bio X
-Digby keeps the graveyard at 0x…dEaD. Every $DIGBY trade lights his lantern; the night shift buys $DIGBY back and Digby buries it. Nothing comes back up.
+## Batas karakter X
+Post maksimal **280**, bio maksimal **160** (akun tanpa Premium). Cara X ngitung:
+- Huruf, angka, tanda baca biasa: 1. Emoji dan beberapa simbol (misalnya `…`, `→`): 2.
+- Link apa pun (termasuk `digbyyard.fun`) selalu dihitung 23, berapapun panjangnya.
+- CA (alamat 0x…, 42 karakter) dihitung 42.
 
-Website di profil X: digbyyard.fun
+Angka di tiap judul di bawah udah dihitung dengan aturan itu, dalam kondisi terburuk (placeholder dihitung sepanjang isi aslinya). Kalau ngedit caption, jalanin `python hitung-caption.py` buat ngecek ulang.
+
+## Bio X (146/160)
+Digby keeps the graveyard at 0x…dEaD. Every $DIGBY trade lights his lantern; the bot buys $DIGBY back and Digby buries it. Nothing comes back up.
+
+Kolom website di profil: digbyyard.fun
 
 ## Urutan posting yang aku saranin
 1. **Beberapa hari sebelum launch:** ganti logo + banner, pin `04-prelaunch.mp4`.
@@ -42,61 +50,58 @@ Website di profil X: digbyyard.fun
 
 ---
 
-## Post: prelaunch (04-prelaunch.mp4, pin)
+## Post: prelaunch (04-prelaunch.mp4, pin) (269/280)
 Every token ever sent to 0x…dEaD had to go somewhere.
 
 Somebody has to bury it.
 
-Meet Digby. He keeps the graveyard at the dead address, and plot #1 is already dug.
+Meet Digby. Every $DIGBY trade lights his lantern. When it's full, the bot buys $DIGBY back and Digby buries it. Nothing comes back up.
 
-Every $DIGBY trade lights his lantern. When it's full, the night shift buys $DIGBY back and Digby buries it. One grave per burial. Nothing comes back up.
+Plot #1 is dug. Launching soon on Robinhood Chain.
 
-Launching soon on Robinhood Chain.
-
-## Post: launch (05-launch.gif)
+## Post: launch (05-launch.gif) (221/280)
 $DIGBY is live.
 
-The night shift has started. Plot #1 is waiting for its first headstone.
+Every trade lights the lantern. The bot buys $DIGBY back. Digby buries it at 0x…dEaD.
 
-Every trade lights the lantern → the bot buys $DIGBY → Digby buries it at 0x…dEaD.
+Plot #1 is waiting for its first headstone.
 
-CA: [PASTE CA]
+CA: [CA]
 
-Robinhood Chain · Pons
 digbyyard.fun
 
-## Post: cara kerja (06-hook-cara-kerja.png)
-How a $DIGBY trade turns into a grave:
+## Post: cara kerja (06-hook-cara-kerja.png) (250/280)
+How a $DIGBY trade becomes a grave:
 
 1. You trade. A small fee lights the lantern.
 2. The night shift claims it when it's full.
 3. It buys $DIGBY on the open market.
-4. Digby buries it at 0x…dEaD. Gone for good.
+4. Digby buries it at 0x…dEaD.
 
-Every other shift pays Digby's wages, in the open. Every step is on chain.
+Every other shift pays Digby's wages. All on chain.
 
-## Post: tahap (07-hook-stage.png)
+## Post: tahap (07-hook-stage.png) (199/280)
 Digby levels up as the supply goes underground.
 
-Night Shift → Iron Spade → Lanternbearer → Keeper → The Undertaker.
+Night Shift, Iron Spade, Lanternbearer, Keeper, The Undertaker.
 
-0.5%, 1%, 2.5%, 5% of the supply buried.
+Unlocks at 0.5%, 1%, 2.5% and 5% of the supply buried.
 
 Which one do we unlock first?
 
-## Post: meme (08-hook-meme-no-refunds.png)
+## Post: meme (08-hook-meme-no-refunds.png) (49/280)
 sold your $DIGBY?
 
 Digby: "no refunds down here."
 
-## Post: underground (10-hook-underground.mp4)
+## Post: underground (10-hook-underground.mp4) (125/280)
 Every burial is a coffin under the yard.
 
 The more you trade, the deeper Digby digs. Nothing he buries comes back up.
 
 $DIGBY
 
-## Post: tiap burial (09-template-rip.png)
+## Post: tiap burial (09-template-rip.png) (134/280)
 RIP.
 
 Grave #[N] is up. Digby buried [JUMLAH] $DIGBY.
@@ -104,7 +109,7 @@ tx: [LINK TX]
 
 Another one for the ground.
 
-## Post: naik stage
+## Post: naik stage (163/280)
 [X]% of the $DIGBY supply is in the ground.
 
 Digby just unlocked stage [N]: [NAMA STAGE]. New gear: [GEAR].
