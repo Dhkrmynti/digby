@@ -245,16 +245,57 @@ async function settle(hash: string): Promise<boolean> {
   if (rc) return rc.status === 1;
   const tx = await provider!.getTransaction(hash);
   if (!tx) return false;
-  const mined = await tx.wait().catch(() => null);
+  const mined = await tx.wait(1, 180_000).catch(() => null);
   return !!mined && mined.status === 1;
 }
 
 // Execution Cycle
 let isExecuting = false;
 
+/*
+ * Watchdog. A cycle that hangs (an RPC call or a receipt that never comes back) would block
+ * every later tick while PM2 still shows the process online. Past this limit the process
+ * exits on purpose: PM2 starts it again and the run resumes from bot-run.json.
+ */
+const CYCLE_LIMIT_MS = 10 * 60 * 1000;
+let executingSince = 0;
+let lastTickAt = Date.now();
+const startLock = () => {
+  isExecuting = true;
+  executingSince = Date.now();
+};
+
+/** Standby and setup notes are logged once when they change, not every poll, so real moves stay in the log. */
+let lastNote = "";
+function note(type: "warn" | "error", message: string) {
+  if (message === lastNote) return;
+  lastNote = message;
+  addLog(type, message);
+}
+
+/** Warn (at most hourly) when the operator wallet is running out of ETH for gas. */
+const LOW_GAS_WEI = ethers.parseEther("0.0005");
+let lastGasWarn = 0;
+let gasWei: bigint | null = null;
+async function checkGas() {
+  try {
+    gasWei = await provider!.getBalance(wallet!.address);
+    if (gasWei < LOW_GAS_WEI && Date.now() - lastGasWarn > 3_600_000) {
+      lastGasWarn = Date.now();
+      addLog("error", `LOW GAS: operator wallet has ${ethers.formatEther(gasWei)} ETH. Top it up or claims, buys and burns will fail.`);
+    }
+  } catch {
+    // RPC hiccup: try again next tick
+  }
+}
+
 async function executeCycle() {
+  lastTickAt = Date.now();
   if (isExecuting) {
-    addLog("warn", "Cycle currently executing, skipping this poll tick.");
+    if (Date.now() - executingSince > CYCLE_LIMIT_MS) {
+      addLog("error", `WATCHDOG: a cycle has been stuck for over ${CYCLE_LIMIT_MS / 60000} minutes. Restarting the engine; the run resumes where it stopped.`);
+      setTimeout(() => process.exit(1), 500);
+    }
     return;
   }
 
@@ -263,15 +304,17 @@ async function executeCycle() {
 
   if (!isValidAddress(currentConfig.tokenAddress)) {
     botState.status = "standby";
-    addLog("warn", "STANDBY: Token CA is not configured. Waiting for configuration.");
+    note("warn", "STANDBY: Token CA is not configured. Waiting for configuration.");
     return;
   }
 
   if (!wallet || !provider) {
     botState.status = "error";
-    addLog("error", "Wallet or RPC Provider not ready.");
+    note("error", "Wallet or RPC Provider not ready.");
     return;
   }
+
+  await checkGas();
 
   // Auto-detect Curve from Token CA if not set or different
   try {
@@ -291,12 +334,13 @@ async function executeCycle() {
 
   if (!isValidAddress(currentConfig.curveAddress)) {
     botState.status = "standby";
-    addLog("warn", "STANDBY: Curve Address is not valid yet.");
+    note("warn", "STANDBY: Curve Address is not valid yet.");
     return;
   }
+  lastNote = "";
 
   if (BURN_ONLY) {
-    isExecuting = true;
+    startLock();
     try {
       const feeEscrow = new ethers.Contract(PONS_FEE_ESCROW, ESCROW_ABI, wallet);
       const token = new ethers.Contract(currentConfig.tokenAddress, ERC20_ABI, wallet);
@@ -312,7 +356,7 @@ async function executeCycle() {
         const burnNonce = await provider.getTransactionCount(wallet.address, "latest");
         const burnTx = await token.transfer(DEAD_ADDRESS, tokenBalance, { nonce: burnNonce });
         addLog("info", `Burn Tx broadcasted: ${burnTx.hash}`);
-        await burnTx.wait();
+        await burnTx.wait(1, 300_000);
         addLog("success", `COMPLETED: ${formattedBalance} $${tokenSymbol} PERMANENTLY INCINERATED!`);
       } else if (Date.now() - lastBurnOnlyIdleLog > 60_000) {
         lastBurnOnlyIdleLog = Date.now();
@@ -338,7 +382,7 @@ async function executeCycle() {
   currentConfig.claimThresholdETH = cycleThresholdETH;
   botState.claimThresholdETH = cycleThresholdETH;
 
-  isExecuting = true;
+  startLock();
   botState.status = "active";
 
   try {
@@ -538,6 +582,12 @@ async function executeCycle() {
   }
 }
 
+process.on("unhandledRejection", (e: any) => addLog("error", `Unhandled: ${e?.message || e}`));
+process.on("uncaughtException", (e: any) => {
+  addLog("error", `Crash: ${e?.message || e}. Restarting the engine.`);
+  setTimeout(() => process.exit(1), 500);
+});
+
 // Loop berulang
 setInterval(() => {
   executeCycle().catch((e) => addLog("error", `Loop error: ${e.message}`));
@@ -590,6 +640,10 @@ const server = http.createServer(async (req, res) => {
         totalCyclesExecuted: botState.totalCyclesExecuted,
         nextCycleType: (botState.totalCyclesExecuted + 1) % 2 === 1 ? "burn" : "keep",
         lastCycleTime: botState.lastCycleTime,
+        // health: when the loop last ticked, how long the current cycle has run, gas left
+        heartbeatAt: lastTickAt,
+        executingForSeconds: isExecuting ? Math.round((Date.now() - executingSince) / 1000) : 0,
+        operatorGasETH: gasWei === null ? null : ethers.formatEther(gasWei),
         pollIntervalSeconds: currentConfig.pollIntervalSeconds,
         logs: botState.logs
       }
@@ -659,12 +713,9 @@ const PORT = currentConfig.port || 5015;
 
 server.on("error", (err: any) => {
   if (err.code === "EADDRINUSE") {
-    console.warn(`[API] Port ${PORT} sedang dipakai. Mencoba port ${PORT + 1}...`);
-    try {
-      server.listen(PORT + 1, "0.0.0.0");
-    } catch (e) {
-      console.warn("API server dialihkan, proses bot tetap berjalan.");
-    }
+    // nginx only knows this port: never drift to another one. Exit and let PM2 try again.
+    console.error(`[API] Port ${PORT} is in use. Exiting so PM2 restarts the engine on the same port.`);
+    process.exit(1);
   } else {
     console.error("[API Error]:", err.message);
   }
